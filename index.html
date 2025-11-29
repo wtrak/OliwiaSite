@@ -895,6 +895,59 @@ padding: 0.15rem 0.7rem;
     .hide {
       display: none !important;
     }
+    
+    /* Mobile header / nav adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0.5rem 1rem;
+    padding: 0.6rem 0;
+  }
+
+  .brand-mark {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+
+  .brand-text-main {
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+  }
+
+  .brand-text-sub {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+  }
+
+  .nav-links {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .nav-links a {
+    padding: 0.25rem 0;
+  }
+
+  .nav-cta {
+    margin-left: auto;
+  }
+}
+
 
     
   </style>
