@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Oliwia Prime Property | Luxury Real Estate Brokerage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Luxury real estate brokerage in Dubai for buying, selling, leasing, and investing in prime properties." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f7f8fc;          /* page background */
+      --bg-soft: #ffffff;     /* cards / sections */
+      --bg-alt: #f1f4fb;      /* subtle alternate sections */
+      --text: #1f2933;        /* body text */
+      --muted: #6b7280;       /* secondary text */
+      --accent: #caa35a;      /* warm gold */
+      --accent-soft: rgba(202, 163, 90, 0.16);
+      --border-soft: rgba(15, 23, 42, 0.08);
+      --danger: #dc2626;
+      --success: #16a34a;
+
+      --heading: #163968;     /* new heading blue */
+      --nav: #8A7356;
+
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.16);
+      --container-w: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-w);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--nav);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.25);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 20% 0, #f6d58f, #f3c26b 40%, #82552b 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #201107;
+    }
+
+    .brand-text-main {
+      font-family: "Playfair Display", serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #f9fafb;
+    }
+
+    .brand-text-sub {
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #cbd5f5;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 0.35rem 0;
+      color: #e5e7eb;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #f3c26b, #f8dd9a);
+      border-radius: 999px;
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .pill {
+      border-radius: var(--radius-pill);
+      padding: 0.45rem 0.95rem;
+      border: 1px solid var(--border-soft);
+      background: rgba(10, 12, 28, 0.9);
+      font-size: 0.8rem;
+      color: #ffffff;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-pill);
+      padding: 0.45rem 1.1rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, opacity 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f3c26b, #f7dd9c);
+      color: #231305;
+      box-shadow: 0 12px 30px rgba(243, 194, 107, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(243, 194, 107, 0.4);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border-soft);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 3rem 0 3.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .hero {
+        padding: 4rem 0 4.5rem;
+      }
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2.4rem;
+      align-items: center;
+    }
+
+    @media (max-width: 899px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #ffffff;
+      padding: 0.15rem 0.7rem;
+      border-radius: var(--radius-pill);
+      background: #5B4C3A;
+      border: 1px solid rgba(243, 194, 107, 0.3);
+      margin-bottom: 1rem;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 0, #f6d58f, #f3c26b);
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.6rem;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.1rem;
+      color: #5B4C3A;
+    }
+
+    @media (min-width: 900px) {
+      .hero h1 {
+        font-size: 3.1rem;
+      }
+    }
+
+    .hero-highlight {
+      color: var(--accent);
+    }
+
+    .hero-lead {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 32rem;
+      margin-bottom: 1.7rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.6rem;
+    }
+
+    .hero-meta-item strong {
+      color: var(--text);
+    }
+
+    .hero-visual {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      min-height: 260px;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.95;
+    }
+
+    .hero-tag {
+      position: absolute;
+      left: 1.4rem;
+      bottom: 1.4rem;
+      padding: 0.65rem 0.9rem;
+      border-radius: 14px;
+      background: #5B4C3A;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      font-size: 0.75rem;
+      color: #ffffff;
+    }
+
+    .hero-tag strong {
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    .hero-tag small {
+      font-size: 0.72rem;
+    }
+
+    .hero-tag span {
+      font-size: 0.72rem;
+      color: #ffffff;
+    }
+
+    /* Sections */
+    section {
+      padding: 3rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    section:nth-of-type(even) {
+      background: var(--bg-alt);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 799px) {
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .section-title {
+      color: #5B4C3A;
+      font-family: "Playfair Display", serif;
+      font-size: 1.7rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 26rem;
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    @media (max-width: 999px) {
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 599px) {
+      .services-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .service-card {
+      padding: 1.3rem 1.2rem;
+      border-radius: var(--radius-md);
+      background: var(--bg-soft);
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+      position: relative;
+      overflow: hidden;
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .card,
+    .contact-block {
+      border-radius: var(--radius-lg);
+      background: var(--bg-soft);
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.07);
+      padding: 1.6rem 1.4rem 1.5rem;
+    }
+
+    .service-pill {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+    }
+
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+
+    .service-card p {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .service-tagline {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: auto;
+    }
+
+    .service-accent-dot {
+      position: absolute;
+      right: -12px;
+      top: -12px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 0, #f3c26b, #82552b);
+      opacity: 0.35;
+    }
+
+    /* Why Dubai */
+    .why-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    @media (max-width: 899px) {
+      .why-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+      margin: 1.4rem 0 1.6rem;
+    }
+
+    .stat {
+      padding: 0.8rem 1rem;
+      border-radius: var(--radius-md);
+      background: #5B4C3A;
+      border: 1px solid var(--border-soft);
+      min-width: 150px;
+    }
+
+    .stat span {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #ffffff;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-top: 0.15rem;
+      color: var(--accent);
+    }
+
+    .bullet-list {
+      list-style: none;
+      margin: 1.1rem 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .bullet-list li {
+      display: flex;
+      gap: 0.6rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .bullet-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      margin-top: 0.5rem;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .why-photo {
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(243, 194, 107, 0.35);
+      box-shadow: var(--shadow-soft);
+      background: #181d38;
+      position: relative;
+    }
+
+    .why-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-caption {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      background: rgba(8, 10, 28, 0.9);
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    /* Ebook */
+    .ebook-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 1.8rem;
+      border-radius: var(--radius-lg);
+      background: var(--bg-soft);
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.07);
+      padding: 1.8rem 1.6rem;
+    }
+
+    @media (max-width: 899px) {
+      .ebook-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--border-soft);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--heading);
+    }
+
+    .ebook-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.4rem;
+      margin: 0.7rem 0 0.4rem;
+    }
+
+    .ebook-card p {
+      font-size: 0.9rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    .ebook-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 0.6rem;
+    }
+
+    .input {
+      flex: 1 1 180px;
+      min-width: 0;
+      padding: 0.6rem 0.9rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-soft);
+      background: #ffffff;
+      color: #ffffff;
+      outline: none;
+      font-size: 0.88rem;
+    }
+
+    .input::placeholder {
+      color: var(--muted);
+    }
+
+    .disclaimer {
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .ebook-cover {
+      border-radius: 18px;
+      border: 1px solid rgba(243, 194, 107, 0.4);
+      background: radial-gradient(circle at top, #f6d58f, #f3c26b 50%, #5b3a1d 100%);
+      color: #25150a;
+      padding: 1.3rem 1.1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ebook-cover h4 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .ebook-cover span {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .ebook-ribbon {
+      position: absolute;
+      top: 0.7rem;
+      right: -2.4rem;
+      transform: rotate(30deg);
+      background: #1d1020;
+      color: #f8e3bb;
+      font-size: 0.7rem;
+      padding: 0.3rem 2.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    /* Calculators */
+    .calcs-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 1.8rem;
+    }
+
+    @media (max-width: 999px) {
+      .calcs-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 1.6rem 1.4rem 1.5rem;
+    }
+
+    .card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .field-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .field {
+      flex: 1 1 150px;
+      min-width: 0;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      padding: 0.55rem 0.8rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-soft);
+      background: #ffffff;
+      color: var(--text);
+      font-size: 0.86rem;
+      outline: none;
+    }
+
+    .field input::placeholder {
+      color: var(--muted);
+    }
+
+    .card small {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 0.9rem;
+      align-items: center;
+    }
+
+    .calc-result {
+      margin-top: 1.1rem;
+      padding: 0.85rem 0.9rem;
+      border-radius: 12px;
+      background: #f9fafb;
+      border: 1px solid var(--border-soft);
+      font-size: 0.86rem;
+      color: var(--text);
+      max-height: 270px;
+      overflow: auto;
+    }
+
+    .result-highlight {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .result-success {
+      color: var(--success);
+    }
+
+    .result-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+    }
+
+    .result-table th,
+    .result-table td {
+      padding: 0.35rem 0.4rem;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+      text-align: left;
+    }
+
+    .result-table th {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .result-table tr:nth-child(even) {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Contact / Footer */
+    .contact-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 1.8rem;
+    }
+
+    @media (max-width: 899px) {
+      .contact-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .contact-block h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-block p {
+      color: var(--muted);
+    }
+
+    .contact-details {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .contact-details div {
+      margin-bottom: 0.32rem;
+    }
+
+    .contact-details span {
+      color: var(--text);
+    }
+
+    .mini-map {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      min-height: 200px;
+      background: #141933;
+      position: relative;
+    }
+
+    .mini-map img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+
+    .mini-map-badge {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      font-size: 0.72rem;
+      background: rgba(5, 7, 21, 0.94);
+      padding: 0.35rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+    }
+
+    footer {
+      padding: 1.5rem 0 2rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      margin-top: 1rem;
+    }
+
+    footer .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    /* Utilities */
+    .text-accent {
+      color: var(--accent);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .hide {
+      display: none !important;
+    }
+
+    /* Language switcher */
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.35);
+      border: 1px solid rgba(248, 250, 252, 0.18);
+    }
+
+    .lang-btn {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      color: #e5e7eb;
+      opacity: 0.7;
+      transition: background 0.16s ease, color 0.16s ease, opacity 0.16s ease, transform 0.12s ease;
+    }
+
+    .lang-btn:hover {
+      opacity: 1;
+      transform: translateY(-0.5px);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .lang-btn--active {
+      background: linear-gradient(135deg, #f3c26b, #f7dd9c);
+      color: #231305;
+      opacity: 1;
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.4);
+    }
+
+    .lang-btn--rtl {
+      font-family: inherit;
+    }
+
+    /* Mobile header / nav adjustments */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 0.5rem 1rem;
+        padding: 0.6rem 0;
+      }
+
+      .brand-mark {
+        width: 28px;
+        height: 28px;
+        font-size: 0.9rem;
+      }
+
+      .brand-text-main {
+        font-size: 0.9rem;
+        letter-spacing: 0.06em;
+      }
+
+      .brand-text-sub {
+        font-size: 0.65rem;
+        letter-spacing: 0.14em;
+      }
+
+      .nav-links {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 0.75rem;
+        margin-top: 0.5rem;
+        font-size: 0.8rem;
+      }
+
+      .nav-links a {
+        padding: 0.25rem 0;
+      }
+
+      .nav-cta {
+        margin-left: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav class="nav">
+      <div class="brand">
+        <div class="brand-mark">O</div>
+        <div>
+          <div class="brand-text-main">Oliwia Super Agent</div>
+          <div class="brand-text-sub">BROKER &amp; ADVISOR</div>
+        </div>
+      </div>
+
+      <!-- CENTER NAV LINKS -->
+      <div class="nav-links">
+        <a href="#top">Overview</a>
+        <a href="#services">Services</a>
+        <a href="#why-dubai">Why Dubai</a>
+        <a href="#ebook">Free eBook</a>
+        <a href="#calculators">Cost &amp; ROI Tools</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <!-- RIGHT SIDE CTAs / LANGUAGE SWITCHER -->
+      <div class="nav-cta">
+        <div class="lang-switch" aria-label="Language selection">
+          <a href="index.html" class="lang-btn">PL</a>
+          <a href="index-en.html" class="lang-btn lang-btn--active">EN</a>
+          <a href="index-ru.html" class="lang-btn">RU</a>
+          <a href="index-uk.html" class="lang-btn">UK</a>
+          <a href="index-ar.html" class="lang-btn lang-btn--rtl">AR</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Ultra-prime Dubai real estate
+          </div>
+          <h1>
+            The ultimate broker for
+            <span class="hero-highlight">global investors</span>
+            in Dubai.
+          </h1>
+          <p class="hero-lead">
+            I help you buy, sell, and lease carefully curated properties in Dubai’s
+            most desirable communities—confidently transacting at the
+            <strong>million-dollar level</strong> with a service that feels
+            calm, precise, and highly personal.
+          </p>
+          <div class="hero-actions">
+            <a href="#ebook" class="btn btn-primary">Get the Dubai Investment Guide</a>
+            <a href="#calculators" class="btn btn-ghost">Run the Numbers</a>
+          </div>
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <strong>Buy • Sell • Lease • List</strong><br />
+              Discreet end-to-end support across residential and investment assets.
+            </div>
+            <div class="hero-meta-item">
+              <strong>Dubai vs World</strong><br />
+              See how far your budget goes against leading global cities.
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="https://images.unsplash.com/flagged/photo-1559717865-a99cac1c95d8?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dubai luxury property" />
+          <div class="hero-tag">
+            <small>Oliwia Super Agent</small>
+            <strong>Strategic Investors Welcome</strong>
+            <span>From first acquisition to a fully structured portfolio.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Buy • Sell • Lease • List</h2>
+        </div>
+        <p class="section-subtitle">
+          Whether you are acquiring your first Dubai residence, restructuring an international portfolio,
+          or quietly leasing a prime asset, I manage the details so you can remain focused
+          on the broader strategy.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-accent-dot"></div>
+          <div class="service-pill">Buy</div>
+          <h3>Private acquisitions</h3>
+          <p>
+            Access to off-market opportunities, trusted developer relationships,
+            and intelligent insight into Dubai’s fastest-appreciating neighborhoods.
+          </p>
+          <div class="service-tagline">Ideal for: end-users &amp; long-term investors.</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-accent-dot"></div>
+          <div class="service-pill">Sell</div>
+          <h3>Discreet disposals</h3>
+          <p>
+            Precision pricing, curated marketing, and strictly qualified buyers.
+            I safeguard your time, privacy, and exit outcome.
+          </p>
+          <div class="service-tagline">Ideal for: owners exiting or upgrading.</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-accent-dot"></div>
+          <div class="service-pill">Lease</div>
+          <h3>Blue-chip tenants</h3>
+          <p>
+            Corporate leases, executive tenancies, and full tenancy management
+            designed to protect your asset while optimising yield.
+          </p>
+          <div class="service-tagline">Ideal for: hands-off landlords.</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-accent-dot"></div>
+          <div class="service-pill">List</div>
+          <h3>List your property</h3>
+          <p>
+            Submit your Dubai property for leasing or sale in minutes.
+            I will review, value, and propose a strategy aligned with your objectives.
+          </p>
+          <div class="service-tagline">Ideal for: owners seeking a second opinion.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Dubai -->
+  <section id="why-dubai">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Why Dubai, Why Now</h2>
+        </div>
+        <p class="section-subtitle">
+          A tax-efficient hub with world-class infrastructure, stable governance, and
+          a lifestyle that outperforms most global cities on both cost and quality.
+        </p>
+      </div>
+
+      <div class="why-grid">
+        <div>
+          <p class="muted">
+            Dubai combines <span class="text-accent">disciplined financial logic</span> with
+            an elevated way of living. For many of my clients, the numbers
+            justify the move long before lifestyle even enters the conversation.
+          </p>
+
+          <div class="stat-row">
+            <div class="stat">
+              <span>Personal income tax</span>
+              <strong>0%</strong>
+            </div>
+            <div class="stat">
+              <span>Quality of life</span>
+              <strong>Tier-1 global</strong>
+            </div>
+            <div class="stat">
+              <span>Property investment</span>
+              <strong>High demand</strong>
+            </div>
+          </div>
+
+          <ul class="bullet-list">
+            <li>
+              <span class="bullet-dot"></span>
+              <div>
+                <strong>Lower cost vs. other major hubs.</strong><br />
+                Housing, cars, and everyday living often cost significantly less than
+                London, New York, Hong Kong, or Zurich—while delivering a higher overall
+                standard of living.
+              </div>
+            </li>
+            <li>
+              <span class="bullet-dot"></span>
+              <div>
+                <strong>Tax-efficient structure.</strong><br />
+                Zero personal income tax and investor-friendly regulations make Dubai
+                a powerful base for global professionals and entrepreneurs.
+              </div>
+            </li>
+            <li>
+              <span class="bullet-dot"></span>
+              <div>
+                <strong>Global connectivity.</strong><br />
+                Fly nonstop to most major financial centres while living
+                minutes from beaches, marinas, and world-class dining.
+              </div>
+            </li>
+          </ul>
+
+          <a href="#calculators" class="btn btn-ghost">Compare Dubai to popular cities</a>
+        </div>
+
+        <div class="why-photo">
+          <img src="https://images.unsplash.com/photo-1721801783842-7133fbf11509?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dubai skyline and Palm" />
+          <div class="photo-caption">Dubai: a lifestyle city with investor-grade fundamentals.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- eBook Lead Magnet -->
+  <section id="ebook">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Free Dubai Investment eBook</h2>
+        </div>
+        <p class="section-subtitle">
+          A concise, direct guide to understanding Dubai as an investment market—ideal
+          for serious buyers who want a clear, jargon-free overview.
+        </p>
+      </div>
+
+      <div class="ebook-card">
+        <div>
+          <div class="badge">
+            <span>Complimentary download</span>
+          </div>
+          <h3>“Why Dubai Should Be Your Next Major Investment”</h3>
+          <p>
+            A high-signal eBook that walks you through key districts,
+            expected returns, risk considerations, and how to structure your
+            entry into Dubai real estate correctly from day one.
+          </p>
+
+          <form class="ebook-form" onsubmit="event.preventDefault(); handleEbookForm();">
+            <input class="input" type="text" id="ebook-name" placeholder="Your name" required />
+            <input class="input" type="email" id="ebook-email" placeholder="Your best email" required />
+            <button type="submit" class="btn btn-primary">Email me the eBook</button>
+          </form>
+          <div class="disclaimer" id="ebook-message">
+            I will never spam you. Expect a brief confirmation and a secure download link.
+          </div>
+        </div>
+
+        <div class="ebook-cover">
+          <div class="ebook-ribbon">Investor Edition</div>
+          <span>Dubai Prime Property</span>
+          <h4>Investing in Dubai</h4>
+          <p style="font-size:0.8rem; margin-top:0.3rem;">
+            A focused playbook for global buyers, covering:
+          </p>
+          <ul style="font-size:0.8rem; margin-top:0.5rem; padding-left:1rem;">
+            <li>Key areas &amp; project types</li>
+            <li>Yield, appreciation &amp; exit</li>
+            <li>How Dubai compares globally</li>
+          </ul>
+          <p style="font-size:0.78rem; margin-top:0.7rem;">
+            <strong>PDF download</strong> — ideal to review on your flight to Dubai.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculators -->
+  <section id="calculators">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Run the Numbers</h2>
+        </div>
+        <p class="section-subtitle">
+          Use these simple tools to compare Dubai with other major cities and to project
+          potential property values based on your investment budget.
+        </p>
+      </div>
+
+      <div class="calcs-grid">
+        <!-- Cost of living / Buy vs Rent -->
+        <div class="card">
+          <h3>Dubai vs. Other Major Cities</h3>
+          <p>
+            Discover how far your monthly lifestyle budget goes in Dubai compared to
+            higher-cost cities such as London, New York, Hong Kong, Singapore, and Zurich.
+          </p>
+
+          <div class="field-group">
+            <div class="field">
+              <label for="budget">Your monthly budget (USD equivalent)</label>
+              <input type="number" id="budget" placeholder="e.g. 8000" min="500" step="100" />
+            </div>
+            <div class="field">
+              <label for="housing-share">Housing share of budget</label>
+              <select id="housing-share">
+                <option value="0.4">40% (balanced)</option>
+                <option value="0.3">30% (lean)</option>
+                <option value="0.5">50% (conservative)</option>
+              </select>
+            </div>
+          </div>
+          <small>
+            Adjust the figures to mirror your current lifestyle spend.
+          </small>
+
+          <div class="card-actions">
+            <button class="btn btn-primary" type="button" onclick="runCostComparison()">Compare Cities</button>
+            <button class="btn btn-ghost" type="button" onclick="resetCostComparison()">Reset</button>
+            <small>Scroll within the results box to review all cities.</small>
+          </div>
+
+          <div id="cost-result" class="calc-result">
+            Enter your monthly budget and click “Compare Cities” to see results.
+          </div>
+        </div>
+
+        <!-- ROI projection -->
+        <div class="card">
+          <h3>Dubai Property ROI Projection</h3>
+          <p>
+            Estimate what a Dubai property could be worth over time using simple
+            compound growth assumptions. This is <strong>not</strong> financial advice,
+            but a useful starting framework for further discussion.
+          </p>
+
+          <div class="field-group">
+            <div class="field">
+              <label for="investment-amount">Investment amount (USD equivalent)</label>
+              <input type="number" id="investment-amount" placeholder="e.g. 500000" min="50000" step="10000" />
+            </div>
+          </div>
+
+          <div class="field-group">
+            <div class="field">
+              <label for="investment-years">Holding period (years)</label>
+              <input type="number" id="investment-years" placeholder="e.g. 5" min="1" step="1" />
+            </div>
+            <div class="field">
+              <label for="growth-scenario">Growth scenario</label>
+              <select id="growth-scenario">
+                <option value="0.04">Conservative • 4% / year</option>
+                <option value="0.06" selected>Balanced • 6% / year</option>
+                <option value="0.08">Growth • 8% / year</option>
+                <option value="0.10">Aggressive • 10% / year</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            <button class="btn btn-primary" type="button" onclick="runRoiProjection()">Project Value</button>
+            <button class="btn btn-ghost" type="button" onclick="resetRoiProjection()">Reset</button>
+          </div>
+
+          <div id="roi-result" class="calc-result">
+            Enter an investment amount and holding period to see projected values.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Confidence section -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Next Step: A Private Conversation</h2>
+        </div>
+        <p class="section-subtitle">
+          Share what you are considering—buying, selling, or relocating—and I will reply
+          with clear, grounded recommendations tailored to your position.
+        </p>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-block">
+          <h3>Speak with Oliwia</h3>
+          <p>
+            Send a short message with your goals, indicative budget, and preferred timeline.
+            I will respond with next steps and, where appropriate, current opportunities.
+          </p>
+
+          <div class="field-group">
+            <div class="field">
+              <label for="contact-name">Name</label>
+              <input type="text" id="contact-name" placeholder="Your name" />
+            </div>
+            <div class="field">
+              <label for="contact-email">Email</label>
+              <input type="email" id="contact-email" placeholder="you@example.com" />
+            </div>
+          </div>
+
+          <div class="field-group">
+            <div class="field">
+              <label for="contact-intent">Main objective</label>
+              <select id="contact-intent">
+                <option value="buy">Buy in Dubai</option>
+                <option value="sell">Sell in Dubai</option>
+                <option value="lease">Lease / rent in Dubai</option>
+                <option value="list">List my property for leasing</option>
+                <option value="invest">Investment portfolio discussion</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="contact-message">Message</label>
+            <textarea
+              id="contact-message"
+              rows="4"
+              style="width: 100%; padding: 0.6rem 0.8rem; border-radius: 10px; border: 1px solid var(--border-soft); background: #ffffff; color: var(--text); font-size: 0.86rem;"
+              placeholder="Share a brief outline of your plans, budget range, and timing."
+            ></textarea>
+          </div>
+
+          <div class="card-actions">
+            <button class="btn btn-primary" type="button" onclick="composeEmail()">Send via Email</button>
+            <small class="muted">This will open your email client with your details pre-filled.</small>
+          </div>
+
+          <div class="contact-details" style="margin-top:1.1rem;">
+            <div><span>Email:</span> oliwia@oliwiasuperagent.com</div>
+            <div><span>WhatsApp:</span> +971 58 517 1884</div>
+          </div>
+        </div>
+
+        <div class="mini-map">
+          <img src="https://images.unsplash.com/photo-1553324534-56ea3fe6e930?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dubai downtown aerial" />
+          <div class="mini-map-badge">Operating across Dubai’s prime residential and investment districts.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Oliwia Super Agent. All rights reserved.</div>
+      <div>Created for investors who value clarity, discretion, and consistent results.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Smooth scroll for in-page anchor links
+  document.addEventListener("click", function (e) {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+    const href = link.getAttribute("href");
+    if (href.length > 1) {
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        window.scrollTo({
+          top: target.offsetTop - 80,
+          behavior: "smooth"
+        });
+      }
+    }
+  });
+
+  // Dynamic year in footer
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // eBook form handling (placeholder behavior for static site)
+  function handleEbookForm() {
+    const name = document.getElementById("ebook-name").value.trim();
+    const email = document.getElementById("ebook-email").value.trim();
+    const messageEl = document.getElementById("ebook-message");
+
+    if (!name || !email) {
+      messageEl.textContent = "Please enter both your name and a valid email.";
+      messageEl.style.color = "var(--danger)";
+      return;
+    }
+
+    messageEl.innerHTML =
+      "Thank you, <span class='result-highlight'>" + name +
+      "</span>. Please check <strong>" + email +
+      "</strong> for your download link (once configured).";
+    messageEl.style.color = "var(--success)";
+  }
+
+  // Cost of living comparison data
+  const cityData = [
+    { name: "Dubai",     costIndex: 1.0, taxRate: 0.00 },
+    { name: "London",    costIndex: 1.6, taxRate: 0.25 },
+    { name: "New York",  costIndex: 1.8, taxRate: 0.27 },
+    { name: "Hong Kong", costIndex: 1.7, taxRate: 0.15 },
+    { name: "Singapore", costIndex: 1.5, taxRate: 0.20 },
+    { name: "Zurich",    costIndex: 1.9, taxRate: 0.22 }
+  ];
+
+  function formatCurrency(value) {
+    if (!isFinite(value)) return "-";
+    return "$" + value.toLocaleString("en-US", { maximumFractionDigits: 0 });
+  }
+
+  function runCostComparison() {
+    const budgetInput = document.getElementById("budget");
+    const housingShareInput = document.getElementById("housing-share");
+    const resultEl = document.getElementById("cost-result");
+
+    const budget = parseFloat(budgetInput.value || "0");
+    const housingShare = parseFloat(housingShareInput.value || "0.4");
+
+    if (!budget || budget <= 0) {
+      resultEl.textContent = "Please enter a realistic monthly budget (e.g. 8000).";
+      return;
+    }
+
+    let html = "";
+    html += "<div>With a monthly budget of <span class='result-highlight'>" +
+      formatCurrency(budget) +
+      "</span> in Dubai, here is how much you would typically need in other cities to enjoy a similar standard of living:</div>";
+
+    html += "<table class='result-table'><thead><tr>" +
+      "<th>City</th><th>Required Budget</th><th>↑ vs Dubai</th><th>Est. Annual Tax</th>" +
+      "</tr></thead><tbody>";
+
+    for (let i = 1; i < cityData.length; i++) {
+      const city = cityData[i];
+      const requiredBudget = budget * city.costIndex;
+      const diffPercent = (city.costIndex - 1) * 100;
+      const annualTax = requiredBudget * 12 * city.taxRate;
+
+      html += "<tr>";
+      html += "<td>" + city.name + "</td>";
+      html += "<td>" + formatCurrency(requiredBudget) + "/mo</td>";
+      html += "<td>+" + diffPercent.toFixed(0) + "%</td>";
+      html += "<td>" + (city.taxRate > 0 ? formatCurrency(annualTax) + "/yr" : "N/A") + "</td>";
+      html += "</tr>";
+    }
+    html += "</tbody></table>";
+
+    const london = cityData[1];
+    const londonBudget = budget * london.costIndex;
+    const annualSavings = (londonBudget - budget) * 12;
+
+    html += "<div style='margin-top:0.8rem; font-size:0.85rem;'>";
+    html += "Example: Compared to London, your lifestyle budget saves you approximately ";
+    html += "<span class='result-success'>" + formatCurrency(annualSavings) + " per year</span> ";
+    html += "by basing yourself in Dubai instead of London, even before considering 0% personal income tax in Dubai.";
+    html += "</div>";
+
+    html += "<div style='margin-top:0.6rem; font-size:0.82rem;' class='muted'>";
+    html += "These are illustrative figures only and do not replace formal financial or relocation advice.";
+    html += "</div>";
+
+    resultEl.innerHTML = html;
+  }
+
+  function resetCostComparison() {
+    const budgetInput = document.getElementById("budget");
+    const housingShareInput = document.getElementById("housing-share");
+    const resultEl = document.getElementById("cost-result");
+
+    if (budgetInput) budgetInput.value = "";
+    if (housingShareInput) housingShareInput.value = "0.4";
+
+    if (resultEl) {
+      resultEl.textContent = 'Enter your monthly budget and click “Compare Cities” to see results.';
+    }
+  }
+
+  // ROI projection
+  function runRoiProjection() {
+    const amountInput = document.getElementById("investment-amount");
+    const yearsInput = document.getElementById("investment-years");
+    const scenarioInput = document.getElementById("growth-scenario");
+    const resultEl = document.getElementById("roi-result");
+
+    const amount = parseFloat(amountInput.value || "0");
+    const years = parseInt(yearsInput.value || "0", 10);
+    const rate = parseFloat(scenarioInput.value || "0.06");
+
+    if (!amount || amount <= 0 || !years || years <= 0) {
+      resultEl.textContent = "Please enter both an investment amount and a holding period.";
+      return;
+    }
+
+    const futureValue = amount * Math.pow(1 + rate, years);
+    const totalGain = futureValue - amount;
+    const annualized = (Math.pow(futureValue / amount, 1 / years) - 1) * 100;
+
+    let html = "";
+    html += "<div>Based on an initial investment of <span class='result-highlight'>" + formatCurrency(amount) +
+      "</span> held for <span class='result-highlight'>" + years + " year" + (years > 1 ? "s" : "") +
+      "</span> at an assumed <span class='result-highlight'>" + (rate * 100).toFixed(1) + "%</span> annual growth:</div>";
+
+    html += "<ul style='margin-top:0.7rem; padding-left:1em; font-size:0.88rem;'>";
+    html += "<li>Projected future value: <span class='result-success'>" + formatCurrency(futureValue) + "</span></li>";
+    html += "<li>Total unrealised gain: <span class='result-highlight'>" + formatCurrency(totalGain) + "</span></li>";
+    html += "<li>Approximate annualised return: " + annualized.toFixed(1) + "%</li>";
+    html += "</ul>";
+
+    html += "<div style='margin-top:0.7rem; font-size:0.82rem;' class='muted'>";
+    html += "These are simplified projections using compound growth and do not account for financing, fees, currency movements, or market volatility. ";
+    html += "For a tailored model reflecting specific communities, payment plans, and leverage, please reach out for a private consultation.";
+    html += "</div>";
+
+    resultEl.innerHTML = html;
+  }
+
+  function resetRoiProjection() {
+    const amountInput = document.getElementById("investment-amount");
+    const yearsInput = document.getElementById("investment-years");
+    const scenarioInput = document.getElementById("growth-scenario");
+    const resultEl = document.getElementById("roi-result");
+
+    if (amountInput) amountInput.value = "";
+    if (yearsInput) yearsInput.value = "";
+    if (scenarioInput) scenarioInput.value = "0.06";
+
+    if (resultEl) {
+      resultEl.textContent =
+        "Enter an investment amount and holding period to see projected values.";
+    }
+  }
+
+  // Compose email from contact form (opens user's email client)
+  function composeEmail() {
+    const name = document.getElementById("contact-name").value.trim();
+    const email = document.getElementById("contact-email").value.trim();
+    const intent = document.getElementById("contact-intent").value;
+    const message = document.getElementById("contact-message").value.trim();
+
+    const intentLabelMap = {
+      buy: "Buy in Dubai",
+      sell: "Sell in Dubai",
+      lease: "Lease / Rent in Dubai",
+      list: "List my property for leasing",
+      invest: "Investment portfolio discussion"
+    };
+
+    const subject = encodeURIComponent("Dubai Real Estate Enquiry – " + (intentLabelMap[intent] || "Enquiry"));
+
+    let body = "";
+    body += "Name: " + (name || "(not provided)") + "%0D%0A";
+    body += "Email: " + (email || "(not provided)") + "%0D%0A";
+    body += "Objective: " + (intentLabelMap[intent] || "") + "%0D%0A%0D%0A";
+    body += "Message:%0D%0A" + (message || "(no message yet)") + "%0D%0A";
+
+    const to = "oliwia@oliwiasuperagent.com";
+
+    window.location.href = "mailto:" + to + "?subject=" + subject + "&body=" + body;
+  }
+</script>
+
+</body>
+</html>
