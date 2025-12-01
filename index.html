@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <title>Oliwia Prime Property | Luxury Real Estate Brokerage</title>
+  <title>Oliwia Prime Property | Luksusowe Biuro Nieruchomości</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Luxury real estate brokerage in Dubai for buying, selling, leasing, and investing in prime properties." />
+  <meta name="description" content="Luksusowe biuro nieruchomości w Dubaju, specjalizujące się w kupnie, sprzedaży, wynajmie i inwestowaniu w prestiżowe nieruchomości." />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -151,7 +151,7 @@
   color: #ffffff;
 }
 
-    .nav-cta {
+        .nav-cta {
       display: flex;
       align-items: center;
       gap: 0.6rem;
@@ -166,6 +166,53 @@
       color: #ffffff;
 
     }
+
+/* ▼▼ Language switcher buttons ▼▼ */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(249, 250, 251, 0.28);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #e5e7eb;
+  background: rgba(15, 23, 42, 0.25);
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.lang-btn:hover {
+  background: rgba(249, 250, 251, 0.08);
+  border-color: rgba(249, 250, 251, 0.45);
+  color: #ffffff;
+}
+
+.lang-btn--active {
+  background: linear-gradient(135deg, #f3c26b, #f7dd9c);
+  color: #231305;
+  border-color: transparent;
+  box-shadow: 0 8px 22px rgba(243, 194, 107, 0.35);
+}
+
+.lang-btn--rtl {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+/* ▲▲ Language switcher buttons ▲▲ */
+
+    /* Hero */
+    .hero {
+      padding: 3rem 0 3.5rem;
+    }
+
 
     .btn {
       display: inline-flex;
@@ -962,27 +1009,38 @@ padding: 0.15rem 0.7rem;
         <div class="brand-mark">O</div>
         <div>
           <div class="brand-text-main">Oliwia Super Agent</div>
-          <div class="brand-text-sub">BROKER &amp; ADVISOR</div>
+          <div class="brand-text-sub">BROKER I DORADCA</div>
         </div>
       </div>
 
       <!-- CENTER NAV LINKS -->
       <div class="nav-links">
-        <a href="#top">Overview</a>
-        <a href="#services">Services</a>
-        <a href="#why-dubai">Why Dubai</a>
-        <a href="#ebook">Free eBook</a>
-        <a href="#calculators">Cost &amp; ROI Tools</a>
-        <a href="#contact">Contact</a>
+        <a href="#top">Przegląd</a>
+        <a href="#services">Usługi</a>
+        <a href="#why-dubai">Dlaczego Dubaj</a>
+        <a href="#ebook">Darmowy e-book</a>
+        <a href="#calculators">Kalkulatory kosztów i zwrotu</a>
+        <a href="#contact">Kontakt</a>
       </div>
 
       <!-- RIGHT SIDE CTAs -->
       <div class="nav-cta">
-        
-      </div>
+  <div class="lang-switch" aria-label="Language selection">
+    <!-- Polish = main / active on this version -->
+    <a href="?lang=pl" class="lang-btn lang-btn--active">PL</a>
+    <a href="?lang=en" class="lang-btn">EN</a>
+    <a href="?lang=ru" class="lang-btn">RU</a>
+    <a href="?lang=uk" class="lang-btn">UK</a>
+    <a href="?lang=ar" class="lang-btn lang-btn--rtl">AR</a>
+    
+  </div>
+</div>
+
     </nav>
   </div>
 </header>
+
+
 
 
 <main>
@@ -993,31 +1051,30 @@ padding: 0.15rem 0.7rem;
         <div>
           <div class="eyebrow">
             <span class="eyebrow-dot"></span>
-            Ultra-prime Dubai real estate
+            Najbardziej prestiżowe nieruchomości w Dubaju
           </div>
           <h1>
-            The Ultimate broker for
-            <span class="hero-highlight">global investors</span>
-            in Dubai.
+            Najlepszy broker dla
+            <span class="hero-highlight">globalnych inwestorów</span>
+            w Dubaju.
           </h1>
           <p class="hero-lead">
-            I help you buy, sell, and lease carefully vetted properties in Dubai’s
-            most desirable communities—confidently transacting at the
-            <strong>million-dollar level</strong> with a team that feels
-            calm, precise, and approachable.
+            Pomagam Państwu kupować, sprzedawać i wynajmować starannie wyselekcjonowane nieruchomości
+            w najbardziej pożądanych społecznościach Dubaju — realizując transakcje na poziomie
+            <strong>milionów dolarów</strong> z zespołem, który jest spokojny, precyzyjny i partnerski.
           </p>
           <div class="hero-actions">
-            <a href="#ebook" class="btn btn-primary">Get the Dubai Investment Guide</a>
-            <a href="#calculators" class="btn btn-ghost">Run the Numbers</a>
+            <a href="#ebook" class="btn btn-primary">Pobierz przewodnik inwestora po Dubaju</a>
+            <a href="#calculators" class="btn btn-ghost">Przelicz liczby</a>
           </div>
           <div class="hero-meta">
             <div class="hero-meta-item">
-              <strong>Buy • Sell • Lease • List</strong><br />
-              End-to-end support across residential &amp; investment assets.
+              <strong>Kupno • Sprzedaż • Wynajem • Ofertowanie</strong><br />
+              Kompleksowe wsparcie przy nieruchomościach mieszkaniowych i inwestycyjnych.
             </div>
             <div class="hero-meta-item">
-              <strong>Dubai vs World</strong><br />
-              See how far your budget goes against top global cities.
+              <strong>Dubaj vs świat</strong><br />
+              Zobacz, jak daleko sięga Państwa budżet na tle czołowych miast świata.
             </div>
           </div>
         </div>
@@ -1026,71 +1083,73 @@ padding: 0.15rem 0.7rem;
           <img src=https://images.unsplash.com/flagged/photo-1559717865-a99cac1c95d8?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D />
           <div class="hero-tag">
             <small>Oliwia Super Agent</small>
-            <strong>Strategic Investors Welcome</strong>
-            <span>From first acquisition to full portfolio build-out.</span>
+            <strong>Zapraszamy inwestorów strategicznych</strong>
+            <span>Od pierwszego zakupu po budowę pełnego portfela.</span>
           </div>
         </div>
       </div>
     </div>
   </section>
+  
+  
 
   <!-- Services -->
   <section id="services">
     <div class="container">
       <div class="section-header">
         <div>
-          <h2 class="section-title">Buy • Sell • Lease • List</h2>
+          <h2 class="section-title">Kupno • Sprzedaż • Wynajem • Ofertowanie</h2>
         </div>
         <p class="section-subtitle">
-          Whether you’re acquiring your first Dubai residence, restructuring a portfolio,
-          or quietly leasing out a prime asset, I handle the details so you can focus
-          on the bigger picture.
+          Niezależnie, czy nabywają Państwo pierwszy dom w Dubaju, restrukturyzują portfel,
+          czy dyskretnie wynajmują kluczowy aktyw, zajmuję się szczegółami, aby mogli Państwo
+          skupić się na szerszej perspektywie.
         </p>
       </div>
 
       <div class="services-grid">
         <div class="service-card">
           <div class="service-accent-dot"></div>
-          <div class="service-pill">Buy</div>
-          <h3>Private acquisitions</h3>
+          <div class="service-pill">Kupno</div>
+          <h3>Prywatne akwizycje</h3>
           <p>
-            Off-market opportunities, developer relationships, and on-the-ground
-            insight into Dubai’s fastest-appreciating neighborhoods.
+            Oferty poza rynkiem, relacje z deweloperami oraz aktualna wiedza
+            o najszybciej zyskujących na wartości dzielnicach Dubaju.
           </p>
-          <div class="service-tagline">Ideal for: end-users &amp; long-term investors.</div>
+          <div class="service-tagline">Idealne dla: użytkowników końcowych i inwestorów długoterminowych.</div>
         </div>
 
         <div class="service-card">
           <div class="service-accent-dot"></div>
-          <div class="service-pill">Sell</div>
-          <h3>Discreet disposals</h3>
+          <div class="service-pill">Sprzedaż</div>
+          <h3>Dyskretne wyjścia z inwestycji</h3>
           <p>
-            Precision pricing, curated marketing, and qualified buyers only.
-            I protect your time, privacy, and upside.
+            Precyzyjna wycena, selektywny marketing i wyłącznie kwalifikowani nabywcy.
+            Chronię Państwa czas, prywatność i potencjał zysku.
           </p>
-          <div class="service-tagline">Ideal for: owners exiting or upgrading.</div>
+          <div class="service-tagline">Idealne dla: właścicieli wychodzących z inwestycji lub przechodzących na wyższy poziom.</div>
         </div>
 
         <div class="service-card">
           <div class="service-accent-dot"></div>
-          <div class="service-pill">Lease</div>
-          <h3>Blue-chip tenants</h3>
+          <div class="service-pill">Wynajem</div>
+          <h3>Najlepsi najemcy</h3>
           <p>
-            Corporate leases, executive tenancies, and full tenancy management
-            designed to preserve your asset and yield.
+            Umowy korporacyjne, najmy dla kadry zarządzającej oraz pełne zarządzanie najmem,
+            zaprojektowane tak, by chronić wartość aktywa i dochód z najmu.
           </p>
-          <div class="service-tagline">Ideal for: hands-off landlords.</div>
+          <div class="service-tagline">Idealne dla: właścicieli szukających pasywnego najmu.</div>
         </div>
 
         <div class="service-card">
           <div class="service-accent-dot"></div>
-          <div class="service-pill">List</div>
-          <h3>List your property</h3>
+          <div class="service-pill">Ofertowanie</div>
+          <h3>Dodaj swoją nieruchomość</h3>
           <p>
-            Submit your Dubai property for leasing or sale in minutes.
-            I’ll review, value, and present a strategy.
+            W kilka minut mogą Państwo zgłosić nieruchomość w Dubaju na wynajem lub sprzedaż.
+            Przeanalizuję ją, wycenię i przedstawię strategię.
           </p>
-          <div class="service-tagline">Ideal for: owners seeking a second opinion.</div>
+          <div class="service-tagline">Idealne dla: właścicieli poszukujących drugiej opinii.</div>
         </div>
       </div>
     </div>
@@ -1101,34 +1160,35 @@ padding: 0.15rem 0.7rem;
     <div class="container">
       <div class="section-header">
         <div>
-          <h2 class="section-title">Why Dubai, Why Now</h2>
+          <h2 class="section-title">Dlaczego Dubaj, dlaczego teraz</h2>
         </div>
         <p class="section-subtitle">
-          A tax-efficient hub with world-class infrastructure, stable governance, and
-          a lifestyle that outperforms most global cities on both cost and quality.
+          Efektywne podatkowo centrum z infrastrukturą światowej klasy, stabilnym otoczeniem
+          regulacyjnym i stylem życia, który przewyższa większość globalnych metropolii
+          pod względem kosztów i jakości.
         </p>
       </div>
 
       <div class="why-grid">
         <div>
           <p class="muted">
-            Dubai combines <span class="text-accent">hard financial logic</span> with
-            an undeniably elevated lifestyle. For many of our clients, the numbers
-            justify the move long before lifestyle even enters the conversation.
+            Dubaj łączy <span class="text-accent">twardą logikę finansową</span> z jednoznacznie
+            podwyższonym standardem życia. Dla wielu moich klientów liczby uzasadniają przeprowadzkę
+            na długo przed tym, zanim do rozmowy wejdzie aspekt lifestyle’owy.
           </p>
 
           <div class="stat-row">
             <div class="stat">
-              <span>Personal income tax</span>
+              <span>Podatek dochodowy od osób fizycznych</span>
               <strong>0%</strong>
             </div>
             <div class="stat">
-              <span>Quality of life</span>
-              <strong>Tier-1 global</strong>
+              <span>Jakość życia</span>
+              <strong>Światowa czołówka</strong>
             </div>
             <div class="stat">
-              <span>Property investment</span>
-              <strong>High demand</strong>
+              <span>Inwestycje w nieruchomości</span>
+              <strong>Wysoki popyt</strong>
             </div>
           </div>
 
@@ -1136,37 +1196,37 @@ padding: 0.15rem 0.7rem;
             <li>
               <span class="bullet-dot"></span>
               <div>
-                <strong>Lower cost vs. other major hubs.</strong><br />
-                Housing, cars, and everyday living often cost significantly less than
-                London, New York, Hong Kong, or Zurich—while offering a higher standard
-                of living.
+                <strong>Niższe koszty vs inne główne centra.</strong><br />
+                Mieszkania, samochody i codzienne życie często kosztują wyraźnie mniej niż
+                w Londynie, Nowym Jorku, Hongkongu czy Zurychu — przy wyższym standardzie życia.
               </div>
             </li>
             <li>
               <span class="bullet-dot"></span>
               <div>
-                <strong>Tax-efficient structure.</strong><br />
-                Zero personal income tax and investor-friendly regulations make Dubai
-                a powerful base for global professionals and entrepreneurs.
+                <strong>Efektywna struktura podatkowa.</strong><br />
+                Zerowy podatek dochodowy od osób fizycznych i przyjazne inwestorom regulacje
+                sprawiają, że Dubaj jest potężną bazą dla globalnych profesjonalistów
+                i przedsiębiorców.
               </div>
             </li>
             <li>
               <span class="bullet-dot"></span>
               <div>
-                <strong>Global connectivity.</strong><br />
-                Fly nonstop to most major financial centers while living
-                minutes from beaches, marinas, and world-class dining.
+                <strong>Globalna łączność.</strong><br />
+                Bezpośrednie połączenia lotnicze z większością głównych centrów finansowych,
+                przy jednoczesnym życiu kilka minut od plaż, marin i restauracji światowej klasy.
               </div>
             </li>
           </ul>
 
-          <a href="#calculators" class="btn btn-ghost">Compare Dubai to popular cities</a>
+          <a href="#calculators" class="btn btn-ghost">Porównaj Dubaj z popularnymi miastami</a>
         </div>
 
         <div class="why-photo">
           <!-- Replace this URL with your own photo if desired -->
           <img src=https://images.unsplash.com/photo-1721801783842-7133fbf11509?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D alt="Dubai skyline and Palm" />
-          <div class="photo-caption">Dubai: Lifestyle city with investor-grade fundamentals.</div>
+          <div class="photo-caption">Dubaj: miasto stylu życia z fundamentami na poziomie inwestycyjnym.</div>
         </div>
       </div>
     </div>
@@ -1177,50 +1237,50 @@ padding: 0.15rem 0.7rem;
     <div class="container">
       <div class="section-header">
         <div>
-          <h2 class="section-title">Free Dubai Investment eBook</h2>
+          <h2 class="section-title">Darmowy e-book o inwestowaniu w Dubaju</h2>
         </div>
         <p class="section-subtitle">
-          A short, direct guide to understanding Dubai as an investment market—ideal
-          for serious buyers who want a clear, jargon-free overview.
+          Krótki, konkretny przewodnik po Dubaju jako rynku inwestycyjnym — idealny
+          dla poważnych nabywców, którzy chcą jasnego, wolnego od żargonu spojrzenia.
         </p>
       </div>
 
       <div class="ebook-card">
         <div>
           <div class="badge">
-            <span>Complimentary download</span>
+            <span>Bezpłatne pobranie</span>
           </div>
-          <h3>“Why Dubai Should Be Your Next Major Investment”</h3>
+          <h3>„Dlaczego Dubaj powinien być Państwa kolejną dużą inwestycją”</h3>
           <p>
-            A concise, high-signal eBook that walks you through key districts,
-            expected returns, risks to be aware of, and how to structure your
-            entry into Dubai real estate the right way from day one.
+            Zwięzły, pełen konkretów e-book, który przeprowadzi Państwa przez kluczowe dzielnice,
+            oczekiwane zwroty, ryzyka warte uwagi oraz sposoby właściwego ustrukturyzowania
+            wejścia na rynek nieruchomości w Dubaju już od pierwszego dnia.
           </p>
 
           <form class="ebook-form" onsubmit="event.preventDefault(); handleEbookForm();">
-            <input class="input" type="text" id="ebook-name" placeholder="Your name" required />
-            <input class="input" type="email" id="ebook-email" placeholder="Your best email" required />
-            <button type="submit" class="btn btn-primary">Email me the eBook</button>
+            <input class="input" type="text" id="ebook-name" placeholder="Imię i nazwisko" required />
+            <input class="input" type="email" id="ebook-email" placeholder="Najlepszy adres e-mail" required />
+            <button type="submit" class="btn btn-primary">Wyślij mi e-book na e-mail</button>
           </form>
           <div class="disclaimer" id="ebook-message">
-            I’ll never spam you. Expect a short confirmation and a download link.
+            Nigdy nie wysyłam spamu. Proszę oczekiwać krótkiego potwierdzenia oraz linku do pobrania.
           </div>
         </div>
 
         <div class="ebook-cover">
-          <div class="ebook-ribbon">Investor Edition</div>
+          <div class="ebook-ribbon">Wydanie dla inwestorów</div>
           <span>Dubai Prime Property</span>
-          <h4>Investing in Dubai</h4>
+          <h4>Inwestowanie w Dubaju</h4>
           <p style="font-size:0.8rem; margin-top:0.3rem;">
-            A focused playbook for global buyers, covering:
+            Skondensowany przewodnik dla globalnych nabywców, obejmujący:
           </p>
           <ul style="font-size:0.8rem; margin-top:0.5rem; padding-left:1rem;">
-            <li>Key areas &amp; project types</li>
-            <li>Yield, appreciation &amp; exit</li>
-            <li>How Dubai compares globally</li>
+            <li>Kluczowe obszary i typy projektów</li>
+            <li>Dochód z najmu, wzrost wartości i wyjście z inwestycji</li>
+            <li>Jak Dubaj wypada na tle świata</li>
           </ul>
           <p style="font-size:0.78rem; margin-top:0.7rem;">
-            <strong>PDF download</strong> — perfect to review on your flight to Dubai.
+            <strong>Plik PDF do pobrania</strong> — idealny do przejrzenia w trakcie lotu do Dubaju.
           </p>
         </div>
       </div>
@@ -1232,34 +1292,34 @@ padding: 0.15rem 0.7rem;
     <div class="container">
       <div class="section-header">
         <div>
-          <h2 class="section-title">Run the Numbers</h2>
+          <h2 class="section-title">Przelicz liczby</h2>
         </div>
         <p class="section-subtitle">
-          Use these simple tools to compare Dubai with other major cities and project
-          your potential property returns based on your budget.
+          Skorzystaj z tych prostych narzędzi, aby porównać Dubaj z innymi dużymi miastami
+          i oszacować potencjalne zwroty z nieruchomości przy zadanym budżecie.
         </p>
       </div>
 
       <div class="calcs-grid">
         <!-- Cost of living / Buy vs Rent -->
         <div class="card">
-          <h3>Dubai vs. Other Major Cities</h3>
+          <h3>Dubaj vs inne duże miasta</h3>
           <p>
-            See how far your monthly budget goes in Dubai compared to
-            higher-cost cities like London, New York, Hong Kong, Singapore, and Zurich.
+            Zobacz, jak bardzo Państwa miesięczny budżet wystarcza w Dubaju w porównaniu
+            z droższymi miastami, takimi jak Londyn, Nowy Jork, Hongkong, Singapur czy Zurych.
           </p>
 
           <div class="field-group">
             <div class="field">
-              <label for="budget">Your monthly budget (USD equivalent)</label>
-              <input type="number" id="budget" placeholder="e.g. 8000" min="500" step="100" />
+              <label for="budget">Państwa miesięczny budżet (w ekwiwalencie USD)</label>
+              <input type="number" id="budget" placeholder="np. 8000" min="500" step="100" />
             </div>
             <div class="field">
-              <label for="housing-share">Housing share of budget</label>
+              <label for="housing-share">Udział kosztów mieszkania w budżecie</label>
               <select id="housing-share">
-                <option value="0.4">40% (balanced)</option>
-                <option value="0.3">30% (lean)</option>
-                <option value="0.5">50% (conservative)</option>
+                <option value="0.4">40% (zrównoważony)</option>
+                <option value="0.3">30% (oszczędny)</option>
+                <option value="0.5">50% (zachowawczy)</option>
               </select>
             </div>
           </div>
@@ -1268,57 +1328,57 @@ padding: 0.15rem 0.7rem;
           </small>
 
           <div class="card-actions">
-  <button class="btn btn-primary" type="button" onclick="runCostComparison()">Compare Cities</button>
-  <button class="btn btn-ghost" type="button" onclick="resetCostComparison()">Reset</button>
-  <small>Scroll down within the box to review all cities.</small>
+  <button class="btn btn-primary" type="button" onclick="runCostComparison()">Porównaj miasta</button>
+  <button class="btn btn-ghost" type="button" onclick="resetCostComparison()">Wyczyść</button>
+  <small>Przewiń w dół wewnątrz tego pola, aby zobaczyć wszystkie miasta.</small>
 </div>
 
 
           <div id="cost-result" class="calc-result">
-            Enter your monthly budget and click “Compare Cities” to see results.
+            Wprowadź swój miesięczny budżet i kliknij „Porównaj miasta”, aby zobaczyć wyniki.
           </div>
         </div>
 
         <!-- ROI projection -->
         <div class="card">
-          <h3>Dubai Property ROI Projection</h3>
+          <h3>Prognoza ROI dla nieruchomości w Dubaju</h3>
           <p>
-            Estimate what your Dubai property could be worth over time using simple
-            compound growth assumptions. This is <strong>not</strong> financial advice,
-            just a helpful starting point.
+            Oszacuj, ile może być warta Państwa nieruchomość w Dubaju w czasie,
+            korzystając z prostych założeń wzrostu składanego. To <strong>nie</strong> jest porada inwestycyjna,
+            jedynie pomocny punkt wyjścia.
           </p>
 
           <div class="field-group">
             <div class="field">
-              <label for="investment-amount">Investment amount (USD equivalent)</label>
-              <input type="number" id="investment-amount" placeholder="e.g. 500000" min="50000" step="10000" />
+              <label for="investment-amount">Kwota inwestycji (w ekwiwalencie USD)</label>
+              <input type="number" id="investment-amount" placeholder="np. 500000" min="50000" step="10000" />
             </div>
           </div>
 
           <div class="field-group">
             <div class="field">
-              <label for="investment-years">Holding period (years)</label>
-              <input type="number" id="investment-years" placeholder="e.g. 5" min="1" step="1" />
+              <label for="investment-years">Okres utrzymania (w latach)</label>
+              <input type="number" id="investment-years" placeholder="np. 5" min="1" step="1" />
             </div>
             <div class="field">
-              <label for="growth-scenario">Growth scenario</label>
+              <label for="growth-scenario">Scenariusz wzrostu</label>
               <select id="growth-scenario">
-                <option value="0.04">Conservative • 4% / year</option>
-                <option value="0.06" selected>Balanced • 6% / year</option>
-                <option value="0.08">Growth • 8% / year</option>
-                <option value="0.10">Aggressive • 10% / year</option>
+                <option value="0.04">Konserwatywny • 4% rocznie</option>
+                <option value="0.06" selected>Zrównoważony • 6% rocznie</option>
+                <option value="0.08">Wzrostowy • 8% rocznie</option>
+                <option value="0.10">Agresywny • 10% rocznie</option>
               </select>
             </div>
           </div>
 
           <div class="card-actions">
-  <button class="btn btn-primary" type="button" onclick="runRoiProjection()">Project Value</button>
-  <button class="btn btn-ghost" type="button" onclick="resetRoiProjection()">Reset</button>
+  <button class="btn btn-primary" type="button" onclick="runRoiProjection()">Prognozuj wartość</button>
+  <button class="btn btn-ghost" type="button" onclick="resetRoiProjection()">Wyczyść</button>
 </div>
 
 
           <div id="roi-result" class="calc-result">
-            Enter an investment amount and holding period to see projected values.
+            Wprowadź kwotę inwestycji oraz okres utrzymania, aby zobaczyć prognozowane wartości.
           </div>
         </div>
       </div>
@@ -1330,60 +1390,61 @@ padding: 0.15rem 0.7rem;
     <div class="container">
       <div class="section-header">
         <div>
-          <h2 class="section-title">Next Step: A Quiet Conversation</h2>
+          <h2 class="section-title">Kolejny krok: dyskretna rozmowa</h2>
         </div>
         <p class="section-subtitle">
-          Share what you’re considering—buying, selling, or relocating—and I’ll reply
-          with clear, grounded recommendations tailored to your position.
+          Proszę podzielić się planami — kupnem, sprzedażą lub relokacją — a odpowiem
+          jasnymi, rzeczowymi rekomendacjami dopasowanymi do Państwa sytuacji.
         </p>
       </div>
 
       <div class="contact-card">
         <div class="contact-block">
-          <h3>Talk to a Oliwia</h3>
+          <h3>Skontaktuj się z Oliwią</h3>
           <p>
-            Send a short message with your goals, budget range, and preferred timeline.
-            I’ll respond with next steps and, if suitable, available opportunities.
+            Proszę wysłać krótką wiadomość z Państwa celem, przedziałem budżetu
+            oraz preferowanym terminem. Odpowiem proponowanymi kolejnymi krokami i — jeśli to zasadne —
+            dostępnymi możliwościami.
           </p>
 
           <div class="field-group">
             <div class="field">
-              <label for="contact-name">Name</label>
-              <input type="text" id="contact-name" placeholder="Your name" />
+              <label for="contact-name">Imię i nazwisko</label>
+              <input type="text" id="contact-name" placeholder="Imię i nazwisko" />
             </div>
             <div class="field">
-              <label for="contact-email">Email</label>
-              <input type="email" id="contact-email" placeholder="you@example.com" />
+              <label for="contact-email">E-mail</label>
+              <input type="email" id="contact-email" placeholder="twoj@przyklad.com" />
             </div>
           </div>
 
           <div class="field-group">
             <div class="field">
-              <label for="contact-intent">Main objective</label>
+              <label for="contact-intent">Główny cel</label>
               <select id="contact-intent">
-                <option value="buy">Buy in Dubai</option>
-                <option value="sell">Sell in Dubai</option>
-                <option value="lease">Lease / rent in Dubai</option>
-                <option value="list">List my property for leasing</option>
-                <option value="invest">Investment portfolio discussion</option>
+                <option value="buy">Zakup nieruchomości w Dubaju</option>
+                <option value="sell">Sprzedaż nieruchomości w Dubaju</option>
+                <option value="lease">Najem / wynajem w Dubaju</option>
+                <option value="list">Dodanie mojej nieruchomości na wynajem</option>
+                <option value="invest">Rozmowa o portfelu inwestycyjnym</option>
               </select>
             </div>
           </div>
 
           <div class="field">
-            <label for="contact-message">Message</label>
+            <label for="contact-message">Wiadomość</label>
             <textarea id="contact-message" rows="4" style="width: 100%; padding: 0.6rem 0.8rem; border-radius: 10px; border: 1px solid var(--border-soft); background: #ffffff; color: var(--text); font-size: 0.86rem;"
- placeholder="Tell us a little about your plans, budget, and timing."></textarea>
+ placeholder="Proszę krótko opisać swoje plany, budżet i ramy czasowe."></textarea>
           </div>
 
           <div class="card-actions">
             <!-- Replace mailto: with your brokerage email address -->
-            <button class="btn btn-primary" type="button" onclick="composeEmail()">Send via Email</button>
-            <small class="muted">This will open your email client with your details pre-filled.</small>
+            <button class="btn btn-primary" type="button" onclick="composeEmail()">Wyślij przez e-mail</button>
+            <small class="muted">Spowoduje to otwarcie programu pocztowego z wypełnionymi danymi.</small>
           </div>
 
           <div class="contact-details" style="margin-top:1.1rem;">
-            <div><span>Email:</span> oliwia@oliwiasuperagent.com</div>
+            <div><span>E-mail:</span> oliwia@oliwiasuperagent.com</div>
             <div><span>WhatsApp:</span> +971 58 517 1884</div>
           </div>
         </div>
@@ -1391,7 +1452,7 @@ padding: 0.15rem 0.7rem;
         <div class="mini-map">
           <!-- Replace this URL with your own if desired -->
           <img src=https://images.unsplash.com/photo-1553324534-56ea3fe6e930?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D alt="Dubai downtown aerial" />
-          <div class="mini-map-badge">Operating across Dubai’s prime districts.</div>
+          <div class="mini-map-badge">Działamy we wszystkich prestiżowych dzielnicach Dubaju.</div>
         </div>
       </div>
     </div>
@@ -1401,8 +1462,8 @@ padding: 0.15rem 0.7rem;
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <div>© <span id="year"></span> Oliwia Super Agent. All rights reserved.</div>
-      <div>Designed for investors who value clarity, discretion, and results.</div>
+      <div>© <span id="year"></span> Oliwia Super Agent. Wszystkie prawa zastrzeżone.</div>
+      <div>Stworzone dla inwestorów, którzy cenią przejrzystość, dyskrecję i efekty.</div>
     </div>
   </div>
 </footer>
@@ -1435,15 +1496,15 @@ padding: 0.15rem 0.7rem;
     const messageEl = document.getElementById("ebook-message");
 
     if (!name || !email) {
-      messageEl.textContent = "Please enter both your name and a valid email.";
+      messageEl.textContent = "Proszę podać imię i nazwisko oraz prawidłowy adres e-mail.";
       messageEl.style.color = "var(--danger)";
       return;
     }
 
     messageEl.innerHTML =
-      "Thank you, <span class='result-highlight'>" + name +
-      "</span>. Please check <strong>" + email +
-      "</strong> for your download link (once configured).";
+      "Dziękujemy, <span class='result-highlight'>" + name +
+      "</span>. Proszę sprawdzić skrzynkę <strong>" + email +
+      "</strong>, gdzie pojawi się link do pobrania (po konfiguracji systemu).";
     messageEl.style.color = "var(--success)";
   }
 
@@ -1471,17 +1532,17 @@ padding: 0.15rem 0.7rem;
     const housingShare = parseFloat(housingShareInput.value || "0.4");
 
     if (!budget || budget <= 0) {
-      resultEl.textContent = "Please enter a realistic monthly budget (e.g. 8000).";
+      resultEl.textContent = "Proszę wprowadzić realistyczny miesięczny budżet (np. 8000).";
       return;
     }
 
     let html = "";
-    html += "<div>With a monthly budget of <span class='result-highlight'>" +
+    html += "<div>Przy miesięcznym budżecie w wysokości <span class='result-highlight'>" +
       formatCurrency(budget) +
-      "</span> in Dubai, here’s how much you’d typically need in other cities to enjoy a similar standard of living:</div>";
+      "</span> w Dubaju, oto ile zwykle potrzebowaliby Państwo w innych miastach, aby utrzymać podobny standard życia:</div>";
 
     html += "<table class='result-table'><thead><tr>" +
-      "<th>City</th><th>Required Budget</th><th>↑ vs Dubai</th><th>Est. Annual Tax</th>" +
+      "<th>Miasto</th><th>Wymagany budżet</th><th>↑ vs Dubaj</th><th>Szacunkowy podatek roczny</th>" +
       "</tr></thead><tbody>";
 
     for (let i = 1; i < cityData.length; i++) {
@@ -1492,9 +1553,9 @@ padding: 0.15rem 0.7rem;
 
       html += "<tr>";
       html += "<td>" + city.name + "</td>";
-      html += "<td>" + formatCurrency(requiredBudget) + "/mo</td>";
+      html += "<td>" + formatCurrency(requiredBudget) + "/mies.</td>";
       html += "<td>+" + diffPercent.toFixed(0) + "%</td>";
-      html += "<td>" + (city.taxRate > 0 ? formatCurrency(annualTax) + "/yr" : "N/A") + "</td>";
+      html += "<td>" + (city.taxRate > 0 ? formatCurrency(annualTax) + "/rok" : "brak danych") + "</td>";
       html += "</tr>";
     }
     html += "</tbody></table>";
@@ -1504,13 +1565,13 @@ padding: 0.15rem 0.7rem;
     const annualSavings = (londonBudget - budget) * 12;
 
     html += "<div style='margin-top:0.8rem; font-size:0.85rem;'>";
-    html += "Example: Compared to London, your lifestyle budget saves you approximately ";
-    html += "<span class='result-success'>" + formatCurrency(annualSavings) + " per year</span> ";
-    html += "by basing yourself in Dubai instead of London, even before considering 0% income tax in Dubai.";
+    html += "Przykład: W porównaniu z Londynem Państwa budżet na styl życia pozwala zaoszczędzić około ";
+    html += "<span class='result-success'>" + formatCurrency(annualSavings) + " rocznie</span> ";
+    html += "wybierając Dubaj zamiast Londynu — i to jeszcze przed uwzględnieniem 0% podatku dochodowego w Dubaju.";
     html += "</div>";
 
     html += "<div style='margin-top:0.6rem; font-size:0.82rem;' class='muted'>";
-    html += "These are illustrative figures and not a substitute for formal financial or relocation advice.";
+    html += "To przykładowe wyliczenia i nie stanowią one zastępstwa dla formalnej porady finansowej ani doradztwa relokacyjnego.";
     html += "</div>";
 
     resultEl.innerHTML = html;
@@ -1526,7 +1587,7 @@ padding: 0.15rem 0.7rem;
     if (housingShareInput) housingShareInput.value = "0.4";
 
     if (resultEl) {
-      resultEl.textContent = 'Enter your monthly budget and click “Compare Cities” to see results.';
+      resultEl.textContent = 'Wprowadź swój miesięczny budżet i kliknij „Porównaj miasta”, aby zobaczyć wyniki.';
     }
   }
 
@@ -1542,7 +1603,7 @@ padding: 0.15rem 0.7rem;
     const rate = parseFloat(scenarioInput.value || "0.06");
 
     if (!amount || amount <= 0 || !years || years <= 0) {
-      resultEl.textContent = "Please enter both an investment amount and a holding period.";
+      resultEl.textContent = "Proszę wprowadzić zarówno kwotę inwestycji, jak i okres jej utrzymania.";
       return;
     }
 
@@ -1551,19 +1612,19 @@ padding: 0.15rem 0.7rem;
     const annualized = (Math.pow(futureValue / amount, 1 / years) - 1) * 100;
 
     let html = "";
-    html += "<div>Based on an initial investment of <span class='result-highlight'>" + formatCurrency(amount) +
-      "</span> held for <span class='result-highlight'>" + years + " year" + (years > 1 ? "s" : "") +
-      "</span> at an assumed <span class='result-highlight'>" + (rate * 100).toFixed(1) + "%</span> annual growth:</div>";
+    html += "<div>Przy założeniu początkowej inwestycji w wysokości <span class='result-highlight'>" + formatCurrency(amount) +
+      "</span> utrzymywanej przez <span class='result-highlight'>" + years + " rok" + (years > 1 ? "i" : "") +
+      "</span> przy założonej stopie wzrostu <span class='result-highlight'>" + (rate * 100).toFixed(1) + "%</span> rocznie:</div>";
 
     html += "<ul style='margin-top:0.7rem; padding-left:1em; font-size:0.88rem;'>";
-    html += "<li>Projected future value: <span class='result-success'>" + formatCurrency(futureValue) + "</span></li>";
-    html += "<li>Total unrealized gain: <span class='result-highlight'>" + formatCurrency(totalGain) + "</span></li>";
-    html += "<li>Approx. annualized return: " + annualized.toFixed(1) + "%</li>";
+    html += "<li>Prognozowana przyszła wartość: <span class='result-success'>" + formatCurrency(futureValue) + "</span></li>";
+    html += "<li>Łączny niezrealizowany zysk: <span class='result-highlight'>" + formatCurrency(totalGain) + "</span></li>";
+    html += "<li>Przybliżona średnioroczna stopa zwrotu: " + annualized.toFixed(1) + "%</li>";
     html += "</ul>";
 
     html += "<div style='margin-top:0.7rem; font-size:0.82rem;' class='muted'>";
-    html += "These are simplified projections using compound growth and do not account for financing, fees, currency movements, or market volatility. ";
-    html += "For a tailored model that reflects specific communities, payment plans, and leverage, please reach out for a private consultation.";
+    html += "Są to uproszczone projekcje oparte na wzroście składanym i nie uwzględniają finansowania, opłat, zmian kursowych ani zmienności rynku. ";
+    html += "Aby otrzymać model dopasowany do konkretnych dzielnic, planów płatności i dźwigni finansowej, proszę o kontakt w celu prywatnej konsultacji.";
     html += "</div>";
 
     resultEl.innerHTML = html;
@@ -1585,7 +1646,7 @@ padding: 0.15rem 0.7rem;
   // Reset result box text
   if (resultEl) {
     resultEl.textContent =
-      "Enter an investment amount and holding period to see projected values.";
+      "Wprowadź kwotę inwestycji oraz okres utrzymania, aby zobaczyć prognozowane wartości.";
   }
 }
 
@@ -1598,20 +1659,20 @@ padding: 0.15rem 0.7rem;
     const message = document.getElementById("contact-message").value.trim();
 
     const intentLabelMap = {
-      buy: "Buy in Dubai",
-      sell: "Sell in Dubai",
-      lease: "Lease / Rent in Dubai",
-      list: "List my property for leasing",
-      invest: "Investment portfolio discussion"
+      buy: "Zakup nieruchomości w Dubaju",
+      sell: "Sprzedaż nieruchomości w Dubaju",
+      lease: "Najem / wynajem w Dubaju",
+      list: "Dodanie nieruchomości na wynajem",
+      invest: "Rozmowa o portfelu inwestycyjnym"
     };
 
-    const subject = encodeURIComponent("Dubai Real Estate Enquiry – " + (intentLabelMap[intent] || "Enquiry"));
+    const subject = encodeURIComponent("Zapytanie dotyczące nieruchomości w Dubaju – " + (intentLabelMap[intent] || "Zapytanie"));
 
     let body = "";
-    body += "Name: " + (name || "(not provided)") + "%0D%0A";
-    body += "Email: " + (email || "(not provided)") + "%0D%0A";
-    body += "Objective: " + (intentLabelMap[intent] || "") + "%0D%0A%0D%0A";
-    body += "Message:%0D%0A" + (message || "(no message yet)") + "%0D%0A";
+    body += "Imię i nazwisko: " + (name || "(brak danych)") + "%0D%0A";
+    body += "E-mail: " + (email || "(brak danych)") + "%0D%0A";
+    body += "Cel: " + (intentLabelMap[intent] || "") + "%0D%0A%0D%0A";
+    body += "Wiadomość:%0D%0A" + (message || "(brak treści wiadomości)") + "%0D%0A";
 
     const to = "oliwia@oliwiasuperagent.com";
 
