@@ -1,1 +1,1622 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Oliwia Prime Property | Элитная недвижимость в Дубае</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Элитное брокерское сопровождение сделок с недвижимостью в Дубае: покупка, продажа, аренда и инвестиции в первоклассные объекты." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f7f8fc;          /* page background */
+      --bg-soft: #ffffff;     /* cards / sections */
+      --bg-alt: #f1f4fb;      /* subtle alternate sections */
+      --text: #1f2933;        /* body text */
+      --muted: #6b7280;       /* secondary text */
+      --accent: #caa35a;      /* warm gold */
+      --accent-soft: rgba(202, 163, 90, 0.16);
+      --border-soft: rgba(15, 23, 42, 0.08);
+      --danger: #dc2626;
+      --success: #16a34a;
 
+      --heading: #163968;     /* heading blue */
+      --nav: #8A7356;
+
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.16);
+      --container-w: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-w);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--nav);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.25);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 20% 0, #f6d58f, #f3c26b 40%, #82552b 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #201107;
+    }
+
+    .brand-text-main {
+      font-family: "Playfair Display", serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #f9fafb;
+    }
+
+    .brand-text-sub {
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #cbd5f5;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 0.35rem 0;
+      color: #e5e7eb;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #f3c26b, #f8dd9a);
+      border-radius: 999px;
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .pill {
+      border-radius: var(--radius-pill);
+      padding: 0.45rem 0.95rem;
+      border: 1px solid var(--border-soft);
+      background: rgba(10, 12, 28, 0.9);
+      font-size: 0.8rem;
+      color: #ffffff;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-pill);
+      padding: 0.45rem 1.1rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, opacity 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f3c26b, #f7dd9c);
+      color: #231305;
+      box-shadow: 0 12px 30px rgba(243, 194, 107, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(243, 194, 107, 0.4);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border-soft);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 3rem 0 3.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .hero {
+        padding: 4rem 0 4.5rem;
+      }
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2.4rem;
+      align-items: center;
+    }
+
+    @media (max-width: 899px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #ffffff;
+      padding: 0.15rem 0.7rem;
+      border-radius: var(--radius-pill);
+      background: #5B4C3A;
+      border: 1px solid rgba(243, 194, 107, 0.3);
+      margin-bottom: 1rem;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 0, #f6d58f, #f3c26b);
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.6rem;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.1rem;
+      color: #5B4C3A;
+    }
+
+    @media (min-width: 900px) {
+      .hero h1 {
+        font-size: 3.1rem;
+      }
+    }
+
+    .hero-highlight {
+      color: var(--accent);
+    }
+
+    .hero-lead {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 32rem;
+      margin-bottom: 1.7rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.6rem;
+    }
+
+    .hero-meta-item strong {
+      color: var(--text);
+    }
+
+    .hero-visual {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      min-height: 260px;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.95;
+    }
+
+    .hero-tag {
+      position: absolute;
+      left: 1.4rem;
+      bottom: 1.4rem;
+      padding: 0.65rem 0.9rem;
+      border-radius: 14px;
+      background: #5B4C3A;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      font-size: 0.75rem;
+      color: #ffffff;
+    }
+
+    .hero-tag strong {
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    .hero-tag small {
+      font-size: 0.72rem;
+    }
+
+    .hero-tag span {
+      font-size: 0.72rem;
+      color: #ffffff;
+    }
+
+    /* Sections */
+    section {
+      padding: 3rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    section:nth-of-type(even) {
+      background: var(--bg-alt);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 799px) {
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .section-title {
+      color: #5B4C3A;
+      font-family: "Playfair Display", serif;
+      font-size: 1.7rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 26rem;
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    @media (max-width: 999px) {
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 599px) {
+      .services-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .service-card {
+      padding: 1.3rem 1.2rem;
+      border-radius: var(--radius-md);
+      background: var(--bg-soft);
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+      position: relative;
+      overflow: hidden;
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .card,
+    .contact-block {
+      border-radius: var(--radius-lg);
+      background: var(--bg-soft);
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.07);
+      padding: 1.6rem 1.4rem 1.5rem;
+    }
+
+    .service-pill {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+    }
+
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+
+    .service-card p {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .service-tagline {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: auto;
+    }
+
+    .service-accent-dot {
+      position: absolute;
+      right: -12px;
+      top: -12px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 0, #f3c26b, #82552b);
+      opacity: 0.35;
+    }
+
+    /* Why Dubai */
+    .why-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    @media (max-width: 899px) {
+      .why-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+      margin: 1.4rem 0 1.6rem;
+    }
+
+    .stat {
+      padding: 0.8rem 1rem;
+      border-radius: var(--radius-md);
+      background: #5B4C3A;
+      border: 1px solid var(--border-soft);
+      min-width: 150px;
+    }
+
+    .stat span {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #ffffff;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-top: 0.15rem;
+      color: var(--accent);
+    }
+
+    .bullet-list {
+      list-style: none;
+      margin: 1.1rem 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .bullet-list li {
+      display: flex;
+      gap: 0.6rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .bullet-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      margin-top: 0.5rem;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .why-photo {
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(243, 194, 107, 0.35);
+      box-shadow: var(--shadow-soft);
+      background: #181d38;
+      position: relative;
+    }
+
+    .why-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-caption {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      background: rgba(8, 10, 28, 0.9);
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    /* Ebook */
+    .ebook-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 1.8rem;
+      border-radius: var(--radius-lg);
+      background: var(--bg-soft);
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.07);
+      padding: 1.8rem 1.6rem;
+    }
+
+    @media (max-width: 899px) {
+      .ebook-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--border-soft);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--heading);
+    }
+
+    .ebook-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.4rem;
+      margin: 0.7rem 0 0.4rem;
+    }
+
+    .ebook-card p {
+      font-size: 0.9rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    .ebook-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 0.6rem;
+    }
+
+    .input {
+      flex: 1 1 180px;
+      min-width: 0;
+      padding: 0.6rem 0.9rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-soft);
+      background: #ffffff;
+      color: #ffffff;
+      outline: none;
+      font-size: 0.88rem;
+    }
+
+    .input::placeholder {
+      color: var(--muted);
+    }
+
+    .disclaimer {
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .ebook-cover {
+      border-radius: 18px;
+      border: 1px solid rgba(243, 194, 107, 0.4);
+      background: radial-gradient(circle at top, #f6d58f, #f3c26b 50%, #5b3a1d 100%);
+      color: #25150a;
+      padding: 1.3rem 1.1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ebook-cover h4 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .ebook-cover span {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .ebook-ribbon {
+      position: absolute;
+      top: 0.7rem;
+      right: -2.4rem;
+      transform: rotate(30deg);
+      background: #1d1020;
+      color: #f8e3bb;
+      font-size: 0.7rem;
+      padding: 0.3rem 2.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    /* Calculators */
+    .calcs-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 1.8rem;
+    }
+
+    @media (max-width: 999px) {
+      .calcs-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      background: #FFFFF;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 1.6rem 1.4rem 1.5rem;
+    }
+
+    .card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .field-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .field {
+      flex: 1 1 150px;
+      min-width: 0;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      padding: 0.55rem 0.8rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-soft);
+      background: #ffffff;
+      color: var(--text);
+      font-size: 0.86rem;
+      outline: none;
+    }
+
+    .field input::placeholder {
+      color: var(--muted);
+    }
+
+    .card small {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 0.9rem;
+      align-items: center;
+    }
+
+    .calc-result {
+      margin-top: 1.1rem;
+      padding: 0.85rem 0.9rem;
+      border-radius: 12px;
+      background: #f9fafb;
+      border: 1px solid var(--border-soft);
+      font-size: 0.86rem;
+      color: var(--text);
+      max-height: 270px;
+      overflow: auto;
+    }
+
+    .result-highlight {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .result-success {
+      color: var(--success);
+    }
+
+    .result-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+    }
+
+    .result-table th,
+    .result-table td {
+      padding: 0.35rem 0.4rem;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+      text-align: left;
+    }
+
+    .result-table th {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .result-table tr:nth-child(even) {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Contact / Footer */
+    .contact-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 1.8rem;
+    }
+
+    @media (max-width: 899px) {
+      .contact-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .contact-block h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-block p {
+      color: var(--muted);
+    }
+
+    .contact-details {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .contact-details div {
+      margin-bottom: 0.32rem;
+    }
+
+    .contact-details span {
+      color: var(--text);
+    }
+
+    .mini-map {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      min-height: 200px;
+      background: #141933;
+      position: relative;
+    }
+
+    .mini-map img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+
+    .mini-map-badge {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      font-size: 0.72rem;
+      background: rgba(5, 7, 21, 0.94);
+      padding: 0.35rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+    }
+
+    footer {
+      padding: 1.5rem 0 2rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      margin-top: 1rem;
+    }
+
+    footer .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    /* Utilities */
+    .text-accent {
+      color: var(--accent);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .hide {
+      display: none !important;
+    }
+
+    /* Language switcher */
+    .lang-switcher {
+      display: flex;
+      gap: 0.3rem;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    .lang-btn {
+      border-radius: 999px;
+      padding: 0.25rem 0.55rem;
+      border: 1px solid transparent;
+      background: transparent;
+      color: #e5e7eb;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+      opacity: 0.85;
+    }
+
+    .lang-btn:hover {
+      opacity: 1;
+      border-color: rgba(243, 194, 107, 0.4);
+    }
+
+    .lang-btn.active {
+      background: #f3c26b;
+      color: #241308;
+      border-color: #f3c26b;
+      opacity: 1;
+    }
+
+    /* Mobile header / nav adjustments */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 0.5rem 1rem;
+        padding: 0.6rem 0;
+      }
+
+      .brand-mark {
+        width: 28px;
+        height: 28px;
+        font-size: 0.9rem;
+      }
+
+      .brand-text-main {
+        font-size: 0.9rem;
+        letter-spacing: 0.06em;
+      }
+
+      .brand-text-sub {
+        font-size: 0.65rem;
+        letter-spacing: 0.14em;
+      }
+
+      .nav-links {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 0.75rem;
+        margin-top: 0.5rem;
+        font-size: 0.8rem;
+      }
+
+      .nav-links a {
+        padding: 0.25rem 0;
+      }
+
+      .nav-cta {
+        margin-left: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav class="nav">
+      <div class="brand">
+        <div class="brand-mark">O</div>
+        <div>
+          <div class="brand-text-main">Oliwia Super Agent</div>
+          <div class="brand-text-sub">БРОКЕР • КОНСУЛЬТАНТ</div>
+        </div>
+      </div>
+
+      <!-- CENTER NAV LINKS -->
+      <div class="nav-links">
+        <a href="#top">Обзор</a>
+        <a href="#services">Услуги</a>
+        <a href="#why-dubai">Почему Дубай</a>
+        <a href="#ebook">Инвестиционный e-буклет</a>
+        <a href="#calculators">Калькуляторы</a>
+        <a href="#contact">Контакт</a>
+      </div>
+
+      <!-- RIGHT SIDE: LANGUAGE SWITCHER -->
+      <div class="nav-cta">
+        <div class="lang-switcher">
+          <a href="index.html" class="lang-btn">PL</a>
+          <a href="index-en.html" class="lang-btn">EN</a>
+          <button class="lang-btn active" type="button">RU</button>
+          <a href="index-uk.html" class="lang-btn">UK</a>
+          <a href="index-ar.html" class="lang-btn">AR</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Элитная недвижимость Дубая
+          </div>
+          <h1>
+            Персональный брокер
+            <span class="hero-highlight">для глобальных инвесторов</span>
+            в Дубае.
+          </h1>
+          <p class="hero-lead">
+            Я помогаю приобретать, продавать и сдавать в аренду тщательно отобранные объекты
+            в самых востребованных районах Дубая — обеспечивая уверенные сделки
+            на уровне <strong>миллион-долларовых инвестиций</strong> в атмосфере
+            спокойствия, точности и дискретности.
+          </p>
+          <div class="hero-actions">
+            <a href="#ebook" class="btn btn-primary">Получить инвестиционный гид по Дубаю</a>
+            <a href="#calculators" class="btn btn-ghost">Рассчитать показатели</a>
+          </div>
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <strong>Покупка • Продажа • Аренда • Листинг</strong><br />
+              Полный цикл сопровождения жилых и инвестиционных активов.
+            </div>
+            <div class="hero-meta-item">
+              <strong>Дубай и другие столицы</strong><br />
+              Узнайте, насколько дальше уходит Ваш бюджет по сравнению с ведущими мегаполисами мира.
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="https://images.unsplash.com/flagged/photo-1559717865-a99cac1c95d8?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Интерьер элитного апартамента в Дубае" />
+          <div class="hero-tag">
+            <small>Oliwia Super Agent</small>
+            <strong>Добро пожаловать, стратегические инвесторы</strong>
+            <span>От первой покупки до построения полноценного портфеля.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Покупка • Продажа • Аренда • Листинг</h2>
+        </div>
+        <p class="section-subtitle">
+          Покупаете ли Вы первую резиденцию в Дубае, оптимизируете портфель
+          или незаметно сдаёте в аренду премиальный актив — я беру на себя детали,
+          чтобы Вы могли сосредоточиться на стратегически важных решениях.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-accent-dot"></div>
+          <div class="service-pill">Покупка</div>
+          <h3>Закрытые приобретения</h3>
+          <p>
+            Непубличные предложения, прямые связи с застройщиками и практическая
+            экспертиза по самым быстрорастущим районам Дубая.
+          </p>
+          <div class="service-tagline">Идеально для: конечных пользователей и долгосрочных инвесторов.</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-accent-dot"></div>
+          <div class="service-pill">Продажа</div>
+          <h3>Деликатные продажи</h3>
+          <p>
+            Точная стратегия ценообразования, выверенный маркетинг и доступ только
+            для квалифицированных покупателей. Я защищаю Ваше время, конфиденциальность и доходность.
+          </p>
+          <div class="service-tagline">Идеально для: владельцев, планирующих выход или апгрейд.</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-accent-dot"></div>
+          <div class="service-pill">Аренда</div>
+          <h3>Премиальные арендаторы</h3>
+          <p>
+            Корпоративная аренда, топ-менеджмент и полное управление отношениями
+            с арендаторами — для сохранения стоимости и стабильной доходности актива.
+          </p>
+          <div class="service-tagline">Идеально для: владельцев в формате «hands-off».</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-accent-dot"></div>
+          <div class="service-pill">Листинг</div>
+          <h3>Размещение Вашего объекта</h3>
+          <p>
+            Отправьте данные о Вашей недвижимости в Дубае за несколько минут.
+            Я проведу оценку и предложу стратегию вывода на рынок.
+          </p>
+          <div class="service-tagline">Идеально для: владельцев, ценящих независимый профессиональный взгляд.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Dubai -->
+  <section id="why-dubai">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Почему Дубай — и почему сейчас</h2>
+        </div>
+        <p class="section-subtitle">
+          Налогово-эффективный международный хаб с инфраструктурой мирового уровня,
+          устойчивой системой управления и образом жизни, который опережает
+          большинство глобальных столиц одновременно по качеству и по стоимости.
+        </p>
+      </div>
+
+      <div class="why-grid">
+        <div>
+          <p class="muted">
+            Дубай объединяет в себе <span class="text-accent">жёсткую финансовую логику</span>
+            и по-настоящему возвышенный стиль жизни. Для многих моих клиентов
+            цифры оправдывают решение задолго до того, как в обсуждение
+            входит фактор лайфстайла.
+          </p>
+
+          <div class="stat-row">
+            <div class="stat">
+              <span>Налог на личный доход</span>
+              <strong>0%</strong>
+            </div>
+            <div class="stat">
+              <span>Качество жизни</span>
+              <strong>Мировой Tier-1</strong>
+            </div>
+            <div class="stat">
+              <span>Интерес к недвижимости</span>
+              <strong>Стойкий спрос</strong>
+            </div>
+          </div>
+
+          <ul class="bullet-list">
+            <li>
+              <span class="bullet-dot"></span>
+              <div>
+                <strong>Снижение расходов vs другие мегаполисы.</strong><br />
+                Жильё, автомобили и повседневная жизнь зачастую обходятся значительно дешевле,
+                чем в Лондоне, Нью-Йорке, Гонконге или Цюрихе — при сопоставимо более высоком уровне комфорта.
+              </div>
+            </li>
+            <li>
+              <span class="bullet-dot"></span>
+              <div>
+                <strong>Налогово-эффективные структуры.</strong><br />
+                Нулевой налог на личный доход и гибкое регулирование для инвесторов
+                делают Дубай мощной базой для предпринимателей и активных профессионалов.
+              </div>
+            </li>
+            <li>
+              <span class="bullet-dot"></span>
+              <div>
+                <strong>Глобальная связность.</strong><br />
+                Прямые рейсы в большинство финансовых центров мира —
+                при этом Вы живёте в нескольких минутах от пляжей, марин и ресторанов мирового уровня.
+              </div>
+            </li>
+          </ul>
+
+          <a href="#calculators" class="btn btn-ghost">Сравнить Дубай с другими городами</a>
+        </div>
+
+        <div class="why-photo">
+          <img src="https://images.unsplash.com/photo-1721801783842-7133fbf11509?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Побережье и панорама Дубая" />
+          <div class="photo-caption">Дубай: город стиля жизни с фундаментальными инвестиционными показателями.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- eBook Lead Magnet -->
+  <section id="ebook">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Бесплатный инвестиционный гид по Дубаю</h2>
+        </div>
+        <p class="section-subtitle">
+          Краткое и ёмкое введение в рынок недвижимости Дубая — для серьёзных покупателей,
+          которые ценят чёткое, структурированное объяснение без лишнего «шума».
+        </p>
+      </div>
+
+      <div class="ebook-card">
+        <div>
+          <div class="badge">
+            <span>Бесплатная загрузка</span>
+          </div>
+          <h3>«Почему Ваш следующий крупный капитал стоит разместить в Дубае»</h3>
+          <p>
+            Сфокусированный e-буклет, который проведёт Вас по ключевым районам,
+            диапазонам доходности, основным рискам и стратегиям входа,
+            чтобы Вы изначально выстроили правильную структуру владения.
+          </p>
+
+          <form class="ebook-form" onsubmit="event.preventDefault(); handleEbookForm();">
+            <input class="input" type="text" id="ebook-name" placeholder="Ваше имя" required />
+            <input class="input" type="email" id="ebook-email" placeholder="Ваш лучший e-mail" required />
+            <button type="submit" class="btn btn-primary">Выслать e-буклет на почту</button>
+          </form>
+          <div class="disclaimer" id="ebook-message">
+            Никакого спама. Вы получите короткое подтверждение и ссылку на скачивание.
+          </div>
+        </div>
+
+        <div class="ebook-cover">
+          <div class="ebook-ribbon">Investor Edition</div>
+          <span>Dubai Prime Property</span>
+          <h4>Инвестируем в Дубай</h4>
+          <p style="font-size:0.8rem; margin-top:0.3rem;">
+            Сжатый, практичный путеводитель для международных инвесторов:
+          </p>
+          <ul style="font-size:0.8rem; margin-top:0.5rem; padding-left:1rem;">
+            <li>Ключевые районы и форматы проектов</li>
+            <li>Доходность, рост капитала и стратегия выхода</li>
+            <li>Сравнение Дубая с другими глобальными городами</li>
+          </ul>
+          <p style="font-size:0.78rem; margin-top:0.7rem;">
+            <strong>PDF-формат</strong> — удобно изучить в полёте по направлению в Дубай.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculators -->
+  <section id="calculators">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Посчитайте цифры</h2>
+        </div>
+        <p class="section-subtitle">
+          Используйте эти простые инструменты, чтобы сравнить уровень жизни в Дубае
+          с другими крупными городами и оценить потенциальную стоимость Вашего объекта во времени.
+        </p>
+      </div>
+
+      <div class="calcs-grid">
+        <!-- Cost of living / Buy vs Rent -->
+        <div class="card">
+          <h3>Дубай vs другие крупные города</h3>
+          <p>
+            Посмотрите, насколько дальше уходит Ваш ежемесячный бюджет в Дубае
+            по сравнению с дорогими центрами вроде Лондона, Нью-Йорка, Гонконга, Сингапура и Цюриха.
+          </p>
+
+          <div class="field-group">
+            <div class="field">
+              <label for="budget">Ваш месячный бюджет (в эквиваленте USD)</label>
+              <input type="number" id="budget" placeholder="напр. 8000" min="500" step="100" />
+            </div>
+            <div class="field">
+              <label for="housing-share">Доля бюджета на жильё</label>
+              <select id="housing-share">
+                <option value="0.4">40% (сбалансировано)</option>
+                <option value="0.3">30% (агрессивно)</option>
+                <option value="0.5">50% (консервативно)</option>
+              </select>
+            </div>
+          </div>
+          <small>
+            Цифры носят ориентировочный характер и предназначены для предварительного сравнения.
+          </small>
+
+          <div class="card-actions">
+            <button class="btn btn-primary" type="button" onclick="runCostComparison()">Сравнить города</button>
+            <button class="btn btn-ghost" type="button" onclick="resetCostComparison()">Сбросить</button>
+            <small>Прокрутите блок результатов вниз, чтобы увидеть все города.</small>
+          </div>
+
+          <div id="cost-result" class="calc-result">
+            Введите Ваш месячный бюджет и нажмите «Сравнить города», чтобы увидеть результаты.
+          </div>
+        </div>
+
+        <!-- ROI projection -->
+        <div class="card">
+          <h3>Прогноз стоимости объекта в Дубае</h3>
+          <p>
+            Оцените, сколько может стоить Ваш объект в Дубае через несколько лет,
+            используя простую модель сложного процента. Это <strong>не</strong> финансовая рекомендация,
+            а отправная точка для обсуждения.
+          </p>
+
+          <div class="field-group">
+            <div class="field">
+              <label for="investment-amount">Сумма инвестиций (в эквиваленте USD)</label>
+              <input type="number" id="investment-amount" placeholder="напр. 500000" min="50000" step="10000" />
+            </div>
+          </div>
+
+          <div class="field-group">
+            <div class="field">
+              <label for="investment-years">Горизонт владения (лет)</label>
+              <input type="number" id="investment-years" placeholder="напр. 5" min="1" step="1" />
+            </div>
+            <div class="field">
+              <label for="growth-scenario">Сценарий роста</label>
+              <select id="growth-scenario">
+                <option value="0.04">Консервативный • 4% в год</option>
+                <option value="0.06" selected>Сбалансированный • 6% в год</option>
+                <option value="0.08">Ростовой • 8% в год</option>
+                <option value="0.10">Агрессивный • 10% в год</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            <button class="btn btn-primary" type="button" onclick="runRoiProjection()">Рассчитать стоимость</button>
+            <button class="btn btn-ghost" type="button" onclick="resetRoiProjection()">Сбросить</button>
+          </div>
+
+          <div id="roi-result" class="calc-result">
+            Введите сумму инвестиций и горизонт владения, чтобы увидеть ориентировочный прогноз.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Confidence section -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Следующий шаг: спокойный конфиденциальный разговор</h2>
+        </div>
+        <p class="section-subtitle">
+          Расскажите, что Вы рассматриваете — покупку, продажу, переезд или диверсификацию —
+          и я отвечу чёткими, реалистичными рекомендациями, сформированными под Вашу ситуацию.
+        </p>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-block">
+          <h3>Связаться с Oliwia</h3>
+          <p>
+            Отправьте короткое сообщение с Вашими целями, диапазоном бюджета и желаемыми сроками.
+            Я отвечу с предложением следующих шагов и, при необходимости, подберу релевантные объекты.
+          </p>
+
+          <div class="field-group">
+            <div class="field">
+              <label for="contact-name">Имя</label>
+              <input type="text" id="contact-name" placeholder="Ваше имя" />
+            </div>
+            <div class="field">
+              <label for="contact-email">E-mail</label>
+              <input type="email" id="contact-email" placeholder="you@example.com" />
+            </div>
+          </div>
+
+          <div class="field-group">
+            <div class="field">
+              <label for="contact-intent">Основная цель</label>
+              <select id="contact-intent">
+                <option value="buy">Покупка в Дубае</option>
+                <option value="sell">Продажа в Дубае</option>
+                <option value="lease">Аренда / сдача в аренду</option>
+                <option value="list">Разместить объект для аренды</option>
+                <option value="invest">Обсудить инвестиционный портфель</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="contact-message">Сообщение</label>
+            <textarea
+              id="contact-message"
+              rows="4"
+              style="width: 100%; padding: 0.6rem 0.8rem; border-radius: 10px; border: 1px solid var(--border-soft); background: #ffffff; color: var(--text); font-size: 0.86rem;"
+              placeholder="Кратко опишите Ваши планы, бюджет и желаемые сроки."
+            ></textarea>
+          </div>
+
+          <div class="card-actions">
+            <button class="btn btn-primary" type="button" onclick="composeEmail()">Отправить через e-mail</button>
+            <small class="muted">Будет открыт Ваш почтовый клиент с уже заполненными полями.</small>
+          </div>
+
+          <div class="contact-details" style="margin-top:1.1rem;">
+            <div><span>E-mail:</span> oliwia@oliwiasuperagent.com</div>
+            <div><span>WhatsApp:</span> +971 58 517 1884</div>
+          </div>
+        </div>
+
+        <div class="mini-map">
+          <img src="https://images.unsplash.com/photo-1553324534-56ea3fe6e930?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Деловой центр Дубая с высоты" />
+          <div class="mini-map-badge">Работаем по ключевым премиальным районам Дубая.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Oliwia Super Agent. Все права защищены.</div>
+      <div>Создано для инвесторов, которые ценят ясность, конфиденциальность и результат.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Smooth scroll for in-page anchor links
+  document.addEventListener("click", function (e) {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+    const href = link.getAttribute("href");
+    if (href.length > 1) {
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        window.scrollTo({
+          top: target.offsetTop - 80,
+          behavior: "smooth"
+        });
+      }
+    }
+  });
+
+  // Dynamic year in footer
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // eBook form handling (placeholder behavior for static site)
+  function handleEbookForm() {
+    const name = document.getElementById("ebook-name").value.trim();
+    const email = document.getElementById("ebook-email").value.trim();
+    const messageEl = document.getElementById("ebook-message");
+
+    if (!name || !email) {
+      messageEl.textContent = "Пожалуйста, введите имя и корректный e-mail.";
+      messageEl.style.color = "var(--danger)";
+      return;
+    }
+
+    messageEl.innerHTML =
+      "Спасибо, <span class='result-highlight'>" + name +
+      "</span>. Пожалуйста, проверьте адрес <strong>" + email +
+      "</strong> — после настройки рассылки сюда будет отправлена ссылка на скачивание.";
+    messageEl.style.color = "var(--success)";
+  }
+
+  // Cost of living comparison data
+  const cityData = [
+    { name: "Дубай",     costIndex: 1.0, taxRate: 0.00 },
+    { name: "Лондон",    costIndex: 1.6, taxRate: 0.25 },
+    { name: "Нью-Йорк",  costIndex: 1.8, taxRate: 0.27 },
+    { name: "Гонконг",   costIndex: 1.7, taxRate: 0.15 },
+    { name: "Сингапур",  costIndex: 1.5, taxRate: 0.20 },
+    { name: "Цюрих",     costIndex: 1.9, taxRate: 0.22 }
+  ];
+
+  function formatCurrency(value) {
+    if (!isFinite(value)) return "-";
+    return "$" + value.toLocaleString("en-US", { maximumFractionDigits: 0 });
+  }
+
+  function runCostComparison() {
+    const budgetInput = document.getElementById("budget");
+    const housingShareInput = document.getElementById("housing-share");
+    const resultEl = document.getElementById("cost-result");
+
+    const budget = parseFloat(budgetInput.value || "0");
+    const housingShare = parseFloat(housingShareInput.value || "0.4");
+
+    if (!budget || budget <= 0) {
+      resultEl.textContent = "Пожалуйста, введите реалистичный месячный бюджет (напр. 8000).";
+      return;
+    }
+
+    let html = "";
+    html += "<div>При месячном бюджете в <span class='result-highlight'>" +
+      formatCurrency(budget) +
+      "</span> в Дубае, вот сколько примерно потребуется в других городах, чтобы поддерживать сопоставимый уровень жизни:</div>";
+
+    html += "<table class='result-table'><thead><tr>" +
+      "<th>Город</th><th>Необходимый бюджет</th><th>↑ vs Дубай</th><th>Оценка годового налога</th>" +
+      "</tr></thead><tbody>";
+
+    for (let i = 1; i < cityData.length; i++) {
+      const city = cityData[i];
+      const requiredBudget = budget * city.costIndex;
+      const diffPercent = (city.costIndex - 1) * 100;
+      const annualTax = requiredBudget * 12 * city.taxRate;
+
+      html += "<tr>";
+      html += "<td>" + city.name + "</td>";
+      html += "<td>" + formatCurrency(requiredBudget) + "/мес</td>";
+      html += "<td>+" + diffPercent.toFixed(0) + "%</td>";
+      html += "<td>" + (city.taxRate > 0 ? formatCurrency(annualTax) + "/год" : "N/A") + "</td>";
+      html += "</tr>";
+    }
+    html += "</tbody></table>";
+
+    const london = cityData[1];
+    const londonBudget = budget * london.costIndex;
+    const annualSavings = (londonBudget - budget) * 12;
+
+    html += "<div style='margin-top:0.8rem; font-size:0.85rem;'>";
+    html += "Пример: по сравнению с Лондоном Ваш бюджет на жизнь в Дубае позволяет экономить примерно ";
+    html += "<span class='result-success'>" + formatCurrency(annualSavings) + " в год</span>, ";
+    html += "ещё до учёта нулевого налога на личный доход в Дубае.";
+    html += "</div>";
+
+    html += "<div style='margin-top:0.6rem; font-size:0.82rem;' class='muted'>";
+    html += "Все расчёты являются иллюстративными и не заменяют профессиональную финансовую или налоговую консультацию.";
+    html += "</div>";
+
+    resultEl.innerHTML = html;
+  }
+
+  function resetCostComparison() {
+    const budgetInput = document.getElementById("budget");
+    const housingShareInput = document.getElementById("housing-share");
+    const resultEl = document.getElementById("cost-result");
+
+    if (budgetInput) budgetInput.value = "";
+    if (housingShareInput) housingShareInput.value = "0.4";
+
+    if (resultEl) {
+      resultEl.textContent = "Введите Ваш месячный бюджет и нажмите «Сравнить города», чтобы увидеть результаты.";
+    }
+  }
+
+  // ROI projection
+  function runRoiProjection() {
+    const amountInput = document.getElementById("investment-amount");
+    const yearsInput = document.getElementById("investment-years");
+    const scenarioInput = document.getElementById("growth-scenario");
+    const resultEl = document.getElementById("roi-result");
+
+    const amount = parseFloat(amountInput.value || "0");
+    const years = parseInt(yearsInput.value || "0", 10);
+    const rate = parseFloat(scenarioInput.value || "0.06");
+
+    if (!amount || amount <= 0 || !years || years <= 0) {
+      resultEl.textContent = "Пожалуйста, введите сумму инвестиций и горизонт владения.";
+      return;
+    }
+
+    const futureValue = amount * Math.pow(1 + rate, years);
+    const totalGain = futureValue - amount;
+    const annualized = (Math.pow(futureValue / amount, 1 / years) - 1) * 100;
+
+    let html = "";
+    html += "<div>При начальной инвестиции в <span class='result-highlight'>" + formatCurrency(amount) +
+      "</span> и горизонте <span class='result-highlight'>" + years + " год(а/лет)" +
+      "</span> при предполагаемом росте <span class='result-highlight'>" + (rate * 100).toFixed(1) + "% в год</span>:</div>";
+
+    html += "<ul style='margin-top:0.7rem; padding-left:1em; font-size:0.88rem;'>";
+    html += "<li>Ориентировочная будущая стоимость: <span class='result-success'>" + formatCurrency(futureValue) + "</span></li>";
+    html += "<li>Суммарный нереализованный прирост капитала: <span class='result-highlight'>" + formatCurrency(totalGain) + "</span></li>";
+    html += "<li>Оценочная среднегодовая доходность: " + annualized.toFixed(1) + "%</li>";
+    html += "</ul>";
+
+    html += "<div style='margin-top:0.7rem; font-size:0.82rem;' class='muted'>";
+    html += "Это упрощённый расчёт на основе сложного процента и не учитывает кредитное плечо, комиссии, валютные риски и волатильность рынка. ";
+    html += "Для персональной модели под конкретные районы, планы застройщика и структуру финансирования свяжитесь со мной напрямую.";
+    html += "</div>";
+
+    resultEl.innerHTML = html;
+  }
+
+  function resetRoiProjection() {
+    const amountInput = document.getElementById("investment-amount");
+    const yearsInput = document.getElementById("investment-years");
+    const scenarioInput = document.getElementById("growth-scenario");
+    const resultEl = document.getElementById("roi-result");
+
+    if (amountInput) amountInput.value = "";
+    if (yearsInput) yearsInput.value = "";
+    if (scenarioInput) scenarioInput.value = "0.06";
+
+    if (resultEl) {
+      resultEl.textContent = "Введите сумму инвестиций и горизонт владения, чтобы увидеть ориентировочный прогноз.";
+    }
+  }
+
+  // Compose email from contact form (opens user's email client)
+  function composeEmail() {
+    const name = document.getElementById("contact-name").value.trim();
+    const email = document.getElementById("contact-email").value.trim();
+    const intent = document.getElementById("contact-intent").value;
+    const message = document.getElementById("contact-message").value.trim();
+
+    const intentLabelMap = {
+      buy: "Покупка в Дубае",
+      sell: "Продажа объекта в Дубае",
+      lease: "Аренда / сдача в аренду в Дубае",
+      list: "Разместить объект для аренды",
+      invest: "Обсудить инвестиционный портфель"
+    };
+
+    const subject = encodeURIComponent("Запрос по недвижимости в Дубае – " + (intentLabelMap[intent] || "Запрос"));
+
+    let body = "";
+    body += "Имя: " + (name || "(не указано)") + "%0D%0A";
+    body += "E-mail: " + (email || "(не указан)") + "%0D%0A";
+    body += "Цель: " + (intentLabelMap[intent] || "") + "%0D%0A%0D%0A";
+    body += "Сообщение:%0D%0A" + (message || "(сообщение не указано)") + "%0D%0A";
+
+    const to = "oliwia@oliwiasuperagent.com";
+
+    window.location.href = "mailto:" + to + "?subject=" + subject + "&body=" + body;
+  }
+</script>
+
+</body>
+</html>
