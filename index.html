@@ -1263,8 +1263,8 @@ padding: 0.15rem 0.7rem;
   method="POST"
   action="https://formspree.io/f/xvgeezqq"
   target="_blank"
-  onsubmit="startEbookDownload()"
 >
+
   <input
     class="input"
     type="text"
@@ -1283,9 +1283,14 @@ padding: 0.15rem 0.7rem;
 
   <input type="hidden" name="source" value="Dubai Investment Ebook PL">
 
-  <button type="submit" class="btn btn-primary">
-    Pobierz e-book
-  </button>
+  <button
+  type="submit"
+  class="btn btn-primary"
+  onclick="startEbookDownload()"
+>
+  Pobierz e-book
+</button>
+
 </form>
 
 
