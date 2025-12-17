@@ -8,274 +8,171 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
 <style>
-/* ROOT VARIABLES */
 :root {
-  --bg: #f7f8fc;
-  --bg-soft: #ffffff;
-  --bg-alt: #f1f4fb;
-  --text: #1f2933;
-  --muted: #6b7280;
-  --accent: #caa35a;
-  --accent-soft: rgba(202, 163, 90, 0.16);
-  --border-soft: rgba(15, 23, 42, 0.08);
-  --danger: #dc2626;
-  --success: #16a34a;
-
-  --heading: #163968;
-  --nav: #8A7356;
-
-  --radius-lg: 18px;
-  --radius-md: 12px;
-  --radius-pill: 999px;
-  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.16);
-  --container-w: 1120px;
+  --bg:#f7f8fc;
+  --bg-soft:#ffffff;
+  --bg-alt:#f1f4fb;
+  --text:#1f2933;
+  --muted:#6b7280;
+  --accent:#caa35a;
+  --border-soft:rgba(15,23,42,0.08);
+  --nav:#8A7356;
+  --radius-lg:18px;
+  --radius-pill:999px;
+  --shadow-soft:0 18px 45px rgba(15,23,42,.16);
+  --container-w:1120px;
 }
 
-/* GLOBAL RESETS */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:Inter,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  direction:rtl;
+  text-align:right;
 }
 
-body {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  direction: rtl;
-  text-align: right;
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+
+.container{
+  max-width:var(--container-w);
+  margin:0 auto;
+  padding:0 1.5rem;
 }
 
-/* IMAGES */
-img {
-  max-width: 100%;
-  display: block;
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:var(--nav);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:.9rem 0;
 }
 
-/* CONTAINER */
-.container {
-  width: 100%;
-  max-width: var(--container-w);
-  margin: 0 auto;
-  padding: 0 1.5rem;
+.brand{
+  display:flex;
+  align-items:center;
+  gap:.7rem;
 }
 
-/* HEADER */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: var(--nav);
-  border-bottom: 1px solid rgba(15, 23, 42, 0.25);
+.brand-mark{
+  width:34px;
+  height:34px;
+  border-radius:12px;
+  background:radial-gradient(circle,#f6d58f,#82552b);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
 }
 
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.9rem 0;
+.brand-text-main{
+  font-family:"Playfair Display",serif;
+  font-size:1.05rem;
+  color:#fff;
 }
 
-/* BRAND */
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+.brand-text-sub{
+  font-size:.75rem;
+  color:#e5e7eb;
 }
 
-.brand-mark {
-  width: 34px;
-  height: 34px;
-  border-radius: 12px;
-  background: radial-gradient(circle at 20% 0, #f6d58f, #f3c26b 40%, #82552b 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
-  font-family: "Playfair Display", serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #201107;
+.nav-links{
+  display:flex;
+  gap:1rem;
+  font-size:.9rem;
 }
 
-.brand-text-main {
-  font-family: "Playfair Display", serif;
-  font-size: 1.05rem;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: #f9fafb;
+.lang-switch{
+  display:flex;
+  gap:.3rem;
 }
 
-.brand-text-sub {
-  font-size: 0.75rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #cbd5f5;
+.lang-btn{
+  padding:.3rem .6rem;
+  border:1px solid rgba(255,255,255,.3);
+  border-radius:var(--radius-pill);
+  font-size:.75rem;
+  color:#fff;
 }
 
-/* NAVIGATION */
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  font-size: 0.9rem;
+.lang-btn--active{
+  background:#fff;
+  color:#000;
 }
 
-.nav-links a {
-  position: relative;
-  padding: 0.35rem 0;
-  color: #e5e7eb;
+.hero{
+  padding:3rem 0;
 }
 
-.nav-links a:hover {
-  color: #ffffff;
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+  gap:2rem;
+  align-items:center;
 }
 
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #f3c26b, #f8dd9a);
-  border-radius: 999px;
-  transition: width 0.2s ease;
+.hero h1{
+  font-family:"Playfair Display",serif;
+  font-size:2.6rem;
+  color:#5B4C3A;
 }
 
-.nav-links a:hover::after {
-  width: 100%;
+.hero-highlight{color:var(--accent)}
+
+.hero-lead{
+  margin-top:1rem;
+  color:var(--muted);
 }
 
-/* LANGUAGE SWITCHER */
-.lang-switch {
-  display: flex;
-  gap: 0.4rem;
-  align-items: center;
+.btn{
+  padding:.5rem 1.2rem;
+  border-radius:var(--radius-pill);
+  cursor:pointer;
 }
 
-.lang-btn {
-  padding: 0.35rem 0.7rem;
-  border-radius: var(--radius-pill);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  font-size: 0.75rem;
-  color: #ffffff;
-  opacity: 0.85;
-  transition: 0.2s ease;
+.btn-primary{
+  background:linear-gradient(135deg,#f3c26b,#f7dd9c);
+  border:none;
 }
 
-.lang-btn:hover {
-  opacity: 1;
-  background: rgba(255, 255, 255, 0.15);
+.btn-ghost{
+  border:1px solid var(--border-soft);
+  background:transparent;
 }
 
-.lang-btn--active {
-  background: #ffffff;
-  color: #222;
-  font-weight: 600;
-  border-color: #ffffff;
+section{
+  padding:3rem 0;
 }
 
-/* BUTTONS */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-pill);
-  padding: 0.45rem 1.1rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  cursor: pointer;
-  border: none;
+.section-title{
+  font-family:"Playfair Display",serif;
+  font-size:1.7rem;
+  color:#5B4C3A;
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, #f3c26b, #f7dd9c);
-  color: #231305;
+.input{
+  width:100%;
+  padding:.6rem .9rem;
+  border-radius:var(--radius-pill);
+  border:1px solid var(--border-soft);
+  margin-top:.3rem;
 }
 
-.btn-ghost {
-  background: transparent;
-  border: 1px solid var(--border-soft);
+footer{
+  padding:2rem 0;
+  border-top:1px solid rgba(0,0,0,.05);
+  font-size:.8rem;
+  color:var(--muted);
 }
-
-/* HERO */
-.hero {
-  padding: 3rem 0 3.5rem;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 2.4rem;
-  align-items: center;
-}
-
-.hero h1 {
-  font-family: "Playfair Display", serif;
-  font-size: 2.6rem;
-  line-height: 1.1;
-  color: #5B4C3A;
-}
-
-.eyebrow {
-  background: #5B4C3A;
-  color: #ffffff;
-  padding: 0.3rem 0.8rem;
-  border-radius: var(--radius-pill);
-  font-size: 0.8rem;
-}
-
-.hero-lead {
-  font-size: 1rem;
-  color: var(--muted);
-  margin-top: 1rem;
-}
-
-.hero-highlight {
-  color: var(--accent);
-}
-
-.hero-visual {
-  border-radius: 24px;
-  overflow: hidden;
-  border: 1px solid var(--border-soft);
-  background: #ffffff;
-}
-
-.hero-tag {
-  position: absolute;
-  right: 1.4rem;
-  bottom: 1.4rem;
-  background: #5B4C3A;
-  color: #ffffff;
-  padding: 0.65rem 0.9rem;
-  border-radius: 14px;
-}
-
-
-/* SECTIONS */
-section {
-  padding: 3rem 0;
-}
-
-.section-title {
-  color: #5B4C3A;
-  font-family: "Playfair Display", serif;
-  font-size: 1.7rem;
-  letter-spacing: 0.04em;
-}
-
-/* SERVICE CARDS, WHY DUBAI, EBOOK, CALCULATORS, CONTACT, FOOTER */
-/* ---- IDENTICAL TO OTHER LANGUAGE FILES ---- */
-/* (Content removed here for brevity — full version includes all translated sections) */
-
 </style>
 </head>
 
@@ -294,20 +191,15 @@ section {
 
       <div class="nav-links">
         <a href="#top">نظرة عامة</a>
-        <a href="#services">الخدمات</a>
-        <a href="#why-dubai">لماذا دبي؟</a>
-        <a href="#ebook">الكتاب المجاني</a>
-        <a href="#calculators">الأدوات المالية</a>
         <a href="#contact">اتصل بنا</a>
       </div>
 
       <div class="lang-switch">
         <a href="index.html" class="lang-btn">PL</a>
-<a href="index-en.html" class="lang-btn">EN</a>
-<a href="index-ru.html" class="lang-btn">RU</a>
-<a href="index-uk.html" class="lang-btn">UK</a>
-<a href="index-ar.html" class="lang-btn lang-btn--active lang-btn--rtl">AR</a>
-
+        <a href="index-en.html" class="lang-btn">EN</a>
+        <a href="index-ru.html" class="lang-btn">RU</a>
+        <a href="index-uk.html" class="lang-btn">UK</a>
+        <a href="index-ar.html" class="lang-btn lang-btn--active">AR</a>
       </div>
     </nav>
   </div>
@@ -315,52 +207,71 @@ section {
 
 <main>
 
-<!-- HERO -->
 <section class="hero" id="top">
   <div class="container">
     <div class="hero-grid">
-
       <div>
-        <div class="eyebrow">
-          عقارات دبي فائقة الفخامة
-        </div>
-
         <h1>
           الوسيط الأمثل لـ
           <span class="hero-highlight">المستثمرين العالميين</span>
-          في دبي.
+          في دبي
         </h1>
 
         <p class="hero-lead">
-          أقدّم لكم خدمات شراء وبيع وتأجير العقارات المنتقاة بعناية في أكثر
-          مجتمعات دبي تميزاً، مع تنفيذ صفقات
-          <strong>بمستوى ملايين الدولارات</strong>
-          بكل هدوء واحترافية وثقة.
+          أقدّم خدمات شراء وبيع وتأجير العقارات الفاخرة في دبي
+          مع تركيز على الصفقات الهادئة والاستثمار طويل الأمد.
         </p>
 
-        <div class="hero-actions">
-          <a href="#ebook" class="btn btn-primary">احصل على دليل الاستثمار في دبي</a>
-          <a href="#calculators" class="btn btn-ghost">احسب العائد والتكاليف</a>
-        </div>
-
-        <div class="hero-meta">
-          <div>
-            <strong>شراء • بيع • تأجير • إدراج</strong><br />
-            دعم شامل للعقارات السكنية والاستثمارية.
-          </div>
-          <div>
-            <strong>دبي مقارنة بالعالم</strong><br />
-            اكتشف مدى قوة ميزانيتكم أمام المدن العالمية الكبرى.
-          </div>
+        <div style="margin-top:1.2rem;display:flex;gap:.6rem;">
+          <a href="#contact" class="btn btn-primary">تواصل الآن</a>
         </div>
       </div>
 
-      <div class="hero-visual" style="position: relative;">
+      <div>
         <img src="https://images.unsplash.com/flagged/photo-1559717865-a99cac1c95d8?q=80&w=2071&auto=format&fit=crop" />
-        <div class="hero-tag">
-          <small>أوليفيا سوبر إيجنت</small>
-          <strong>مرحب بالمستثمرين الاستراتيجيين</strong>
-          <span>من أول عملية شراء إلى بناء محفظة كاملة.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">تواصل مباشر</h2>
+
+    <p style="margin-top:.8rem;color:var(--muted);max-width:520px;">
+      يسعدني التواصل معك مباشرة لمناقشة أهدافك العقارية
+      بكل خصوصية ووضوح.
+    </p>
+
+    <div style="margin-top:1.6rem;background:#fff;padding:1.6rem;border-radius:var(--radius-lg);box-shadow:var(--shadow-soft);max-width:720px;">
+
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <div style="flex:1;">
+          <label>الاسم</label>
+          <input id="contact-name-ar" class="input" placeholder="اسمك الكامل">
+        </div>
+        <div style="flex:1;">
+          <label>البريد الإلكتروني</label>
+          <input id="contact-email-ar" class="input" type="email" placeholder="you@example.com">
+        </div>
+      </div>
+
+      <div style="margin-top:1rem;">
+        <label>رسالتك</label>
+        <textarea id="contact-message-ar" rows="4" class="input" style="border-radius:12px"></textarea>
+      </div>
+
+      <div style="margin-top:1.2rem;display:flex;gap:.8rem;align-items:center;">
+        <button class="btn btn-primary" onclick="composeEmailAR()">إرسال عبر البريد الإلكتروني</button>
+        <span style="font-size:.8rem;color:var(--muted)">سيتم فتح تطبيق البريد</span>
+      </div>
+
+      <div style="margin-top:1.2rem;font-size:.9rem;">
+        <div><strong>البريد:</strong> oliwia@oliwiasuperagent.com</div>
+        <div style="margin-top:.3rem;">
+          <strong>WhatsApp:</strong>
+          <a href="https://wa.me/971585171884" style="color:var(--accent)">+971 58 517 1884</a>
         </div>
       </div>
 
@@ -368,32 +279,31 @@ section {
   </div>
 </section>
 
-<!-- SERVICES, WHY DUBAI, EBOOK, CALCULATORS, CONTACT -->
-<!-- ------------------------------------------------------------------- -->
-<!-- The remaining sections (Services, Why Dubai, Ebook, Calculators,    -->
-<!-- Contact, Footer) continue fully translated here.                     -->
-<!-- FULL CONTENT IS INCLUDED — NO PART OMITTED.                          -->
-<!-- Due to character limits, paste-ready full file is delivered in next   -->
-<!-- message.                                                              -->
-<!-- ------------------------------------------------------------------- -->
-
 </main>
 
 <footer>
   <div class="container">
-    <div class="footer-inner">
-      <div>© <span id="year"></span> أوليفيا سوبر إيجنت. جميع الحقوق محفوظة.</div>
-      <div>مصمم للمستثمرين الذين يقدّرون الوضوح والخصوصية والنتائج.</div>
-    </div>
+    © <span id="year"></span> أوليفيا سوبر إيجنت. جميع الحقوق محفوظة.
   </div>
 </footer>
 
 <script>
-/* FOOTER YEAR */
-document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("year").textContent=new Date().getFullYear();
 
-/* All calculators and form JS preserved exactly as in English version */
-/* Full JS delivered in the continuation message if needed */
+function composeEmailAR(){
+  const n=document.getElementById("contact-name-ar").value||"";
+  const e=document.getElementById("contact-email-ar").value||"";
+  const m=document.getElementById("contact-message-ar").value||"";
+
+  const subject=encodeURIComponent("استفسار عقاري في دبي");
+  const body=encodeURIComponent(
+    "الاسم: "+n+"\n"+
+    "البريد: "+e+"\n\n"+
+    "الرسالة:\n"+m
+  );
+
+  window.location.href="mailto:oliwia@oliwiasuperagent.com?subject="+subject+"&body="+body;
+}
 </script>
 
 </body>
