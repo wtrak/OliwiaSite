@@ -1210,15 +1210,41 @@
             entry into Dubai real estate correctly from day one.
           </p>
 
-          <form class="ebook-form" onsubmit="event.preventDefault(); handleEbookForm();">
-            <input class="input" type="text" id="ebook-name" placeholder="Your name" required />
-            <input class="input" type="email" id="ebook-email" placeholder="Your best email" required />
-            <button type="submit" class="btn btn-primary">Email me the eBook</button>
-          </form>
-          <div class="disclaimer" id="ebook-message">
-            I will never spam you. Expect a brief confirmation and a secure download link.
-          </div>
-        </div>
+          <form class="ebook-form" id="ebook-form">
+  <input
+    class="input"
+    type="text"
+    name="FIRSTNAME"
+    placeholder="Your name"
+    required
+  />
+
+  <input
+    class="input"
+    type="email"
+    name="EMAIL"
+    placeholder="Your best email"
+    required
+  />
+
+  <!-- Hidden metadata -->
+  <input type="hidden" name="SOURCE" value="Dubai Investment Ebook EN">
+  <input type="hidden" name="LANGUAGE" value="EN">
+
+  <!-- Honeypot (anti-bot) -->
+  <input
+    type="text"
+    name="company"
+    tabindex="-1"
+    autocomplete="off"
+    style="position:absolute; left:-9999px;"
+  >
+
+  <button type="submit" class="btn btn-primary">
+    Email me the eBook
+  </button>
+</form>
+
 
         <div class="ebook-cover">
           <div class="ebook-ribbon">Investor Edition</div>
@@ -1441,24 +1467,52 @@
   // Dynamic year in footer
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // eBook form handling (placeholder behavior for static site)
-  function handleEbookForm() {
-    const name = document.getElementById("ebook-name").value.trim();
-    const email = document.getElementById("ebook-email").value.trim();
-    const messageEl = document.getElementById("ebook-message");
+  const ebookForm = document.getElementById("ebook-form");
+const ebookMessage = document.getElementById("ebook-message");
 
-    if (!name || !email) {
-      messageEl.textContent = "Please enter both your name and a valid email.";
-      messageEl.style.color = "var(--danger)";
+if (ebookForm && ebookMessage) {
+  ebookForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    ebookMessage.style.color = "var(--muted)";
+    ebookMessage.textContent = "Sending your guide…";
+
+    const formData = new FormData(ebookForm);
+
+    // Honeypot bot protection
+    if (formData.get("company")) {
       return;
     }
 
-    messageEl.innerHTML =
-      "Thank you, <span class='result-highlight'>" + name +
-      "</span>. Please check <strong>" + email +
-      "</strong> for your download link (once configured).";
-    messageEl.style.color = "var(--success)";
-  }
+    try {
+      await fetch(
+        "https://cdb442af.sibforms.com/serve/MUIFAAXLH4Lz8Y06DWvcDlVRmsDlU1KoxH0HUFrfKYwBlSPyDQebSR-qsBf1VEHOgFGVgynZw7al7_SfG4DiRierRtOskVAhwdOsrATPRgrZcXGa-52OBSTopRjKQWCwCedTL1TFxyS9M1BmLl-kSj34Dvec56NyYanNWF-6SW8gGZn8wkYrCQM3wIPlWNVY8yV812SG1VHtZ4Nm0A==",
+        {
+          method: "POST",
+          body: formData,
+          mode: "no-cors"
+        }
+      );
+
+      ebookMessage.innerHTML =
+        "Thank you. Your <strong>Dubai Investment Guide</strong> has been sent to your email.<br>" +
+        "<span class='muted'>If you don’t see it within a minute, please check spam or promotions.</span>";
+      ebookMessage.style.color = "var(--success)";
+
+      ebookForm.querySelectorAll("input, button").forEach(el => {
+        el.disabled = true;
+        el.style.opacity = "0.7";
+      });
+
+    } catch (error) {
+      ebookMessage.textContent =
+        "Something went wrong. Please refresh the page and try again.";
+      ebookMessage.style.color = "var(--danger)";
+    }
+  });
+}
+
+
 
   // Cost of living comparison data
   const cityData = [
