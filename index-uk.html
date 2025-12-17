@@ -31,11 +31,7 @@
       --container-w: 1120px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: "Inter", sans-serif;
@@ -44,15 +40,9 @@
       line-height: 1.6;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    img { max-width: 100%; display: block; }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    a { text-decoration: none; color: inherit; }
 
     .container {
       width: 100%;
@@ -125,9 +115,7 @@
       color: #f5f5f5;
     }
 
-    .nav-links a:hover {
-      color: #ffffff;
-    }
+    .nav-links a:hover { color: #ffffff; }
 
     /* LANG SWITCHER */
     .lang-switch {
@@ -162,9 +150,7 @@
     }
 
     /* HERO */
-    .hero {
-      padding: 3.2rem 0 3.8rem;
-    }
+    .hero { padding: 3.2rem 0 3.8rem; }
 
     .hero-grid {
       display: grid;
@@ -173,9 +159,7 @@
       align-items: center;
     }
 
-    @media(max-width:900px){
-      .hero-grid { grid-template-columns: 1fr; }
-    }
+    @media(max-width:900px){ .hero-grid { grid-template-columns: 1fr; } }
 
     .eyebrow {
       display: inline-flex;
@@ -206,9 +190,7 @@
       color: #5B4C3A;
     }
 
-    .hero-highlight {
-      color: var(--accent);
-    }
+    .hero-highlight { color: var(--accent); }
 
     .hero-lead {
       font-size: 0.98rem;
@@ -227,6 +209,7 @@
     .btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       padding: 0.55rem 1.2rem;
       border-radius: var(--radius-pill);
       font-size: 0.85rem;
@@ -267,6 +250,8 @@
       overflow: hidden;
       border: 1px solid var(--border-soft);
       box-shadow: var(--shadow-soft);
+      background: #fff;
+      min-height: 260px;
     }
 
     .hero-visual img { width: 100%; height: 100%; object-fit: cover; }
@@ -282,10 +267,7 @@
       border-radius: 14px;
     }
 
-    .hero-tag strong {
-      color: var(--accent);
-      font-size: 0.83rem;
-    }
+    .hero-tag strong { color: var(--accent); font-size: 0.83rem; }
 
     /* SECTION STYLES */
     section { padding: 3rem 0; }
@@ -296,6 +278,11 @@
       justify-content: space-between;
       margin-bottom: 2rem;
       gap: 1.5rem;
+      align-items: flex-end;
+    }
+
+    @media(max-width:799px){
+      .section-header{flex-direction:column;align-items:flex-start}
     }
 
     .section-title {
@@ -303,6 +290,7 @@
       font-size: 1.7rem;
       text-transform: uppercase;
       color: #5B4C3A;
+      letter-spacing: 0.04em;
     }
 
     .section-subtitle {
@@ -338,9 +326,10 @@
       font-size: 0.7rem;
       text-transform: uppercase;
       color: var(--accent);
+      letter-spacing: 0.12em;
     }
 
-    .service-card p { color: var(--muted); }
+    .service-card p { color: var(--muted); font-size: 0.88rem; }
 
     .service-accent-dot {
       position: absolute;
@@ -375,6 +364,15 @@
       border-radius: var(--radius-md);
       color: #fff;
       min-width: 150px;
+      border: 1px solid var(--border-soft);
+    }
+
+    .stat span{
+      font-size:0.75rem;
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      color:#fff;
+      opacity:0.95;
     }
 
     .stat strong {
@@ -384,13 +382,22 @@
       margin-top: 0.25rem;
     }
 
+    .bullet-list{
+      list-style:none;
+      margin:1.1rem 0;
+      color:var(--muted);
+      font-size:0.9rem;
+    }
+    .bullet-list li{margin-bottom:0.6rem}
     .why-photo {
       border-radius: 22px;
       overflow: hidden;
       border: 1px solid rgba(243,194,107,0.35);
       box-shadow: var(--shadow-soft);
+      position: relative;
+      background: #181d38;
     }
-
+    .why-photo img{width:100%;height:100%;object-fit:cover}
     .photo-caption {
       position: absolute;
       bottom: 1rem;
@@ -400,6 +407,7 @@
       border-radius: 999px;
       color: #ffffff;
       font-size: 0.72rem;
+      border: 1px solid rgba(255,255,255,0.14);
     }
 
     /* EBOOK CARD */
@@ -417,20 +425,23 @@
     @media(max-width:899px){ .ebook-card { grid-template-columns:1fr; } }
 
     .badge {
-      background: rgba(255,255,255,0.9);
-      border: 1px solid var(--border-soft);
+      display:inline-flex;
+      align-items:center;
       padding: 0.25rem 0.7rem;
       text-transform: uppercase;
       border-radius: var(--radius-pill);
       color: var(--heading);
       letter-spacing: 0.16em;
       font-size: 0.72rem;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid var(--border-soft);
     }
 
     .ebook-form {
       display: flex;
       gap: 0.8rem;
       flex-wrap: wrap;
+      margin-top: 0.8rem;
     }
 
     .input {
@@ -440,9 +451,35 @@
       border: 1px solid var(--border-soft);
       font-size: 0.88rem;
       width: 100%;
+      color: var(--text);
+      outline: none;
     }
 
     .input::placeholder { color: var(--muted); }
+
+    .disclaimer{
+      margin-top:0.65rem;
+      font-size:0.78rem;
+      color:var(--muted);
+    }
+
+    .ebook-cover{
+      border-radius:18px;
+      border:1px solid rgba(243,194,107,0.4);
+      background: radial-gradient(circle at top,#f6d58f,#f3c26b 50%,#5b3a1d 100%);
+      color:#25150a;
+      padding:1.3rem 1.1rem;
+      position:relative;
+      overflow:hidden;
+      min-height: 260px;
+    }
+    .ebook-ribbon{
+      position:absolute;top:0.7rem;right:-2.4rem;transform:rotate(30deg);
+      background:#1d1020;color:#f8e3bb;font-size:0.7rem;
+      padding:0.3rem 2.6rem;text-transform:uppercase;letter-spacing:0.16em;
+    }
+    .ebook-cover h4{font-family:"Playfair Display",serif;font-size:1.2rem;margin-top:0.35rem}
+    .ebook-cover span{font-size:0.8rem;text-transform:uppercase;letter-spacing:0.16em}
 
     /* CALCULATORS */
     .calcs-grid {
@@ -450,7 +487,6 @@
       grid-template-columns: minmax(0,1.15fr) minmax(0,1fr);
       gap: 1.8rem;
     }
-
     @media(max-width:999px){ .calcs-grid { grid-template-columns:1fr; } }
 
     .card {
@@ -461,6 +497,14 @@
       box-shadow: var(--shadow-soft);
     }
 
+    .card h3{
+      font-family:"Playfair Display",serif;
+      font-size:1.3rem;
+      margin-bottom:0.35rem;
+    }
+
+    .card p{color:var(--muted);margin-bottom:1rem;font-size:0.9rem}
+
     .field-group {
       display: flex;
       gap: 0.9rem;
@@ -468,9 +512,10 @@
       margin-bottom: 1rem;
     }
 
-    .field { flex: 1 1 150px; }
+    .field { flex: 1 1 150px; min-width: 0; }
 
     .field label {
+      display:block;
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
@@ -486,6 +531,7 @@
       border: 1px solid var(--border-soft);
       background: #ffffff;
       color: var(--text);
+      outline: none;
     }
 
     .calc-result {
@@ -497,6 +543,36 @@
       max-height: 270px;
       overflow: auto;
       font-size: 0.86rem;
+      color: var(--text);
+    }
+
+    .card-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.8rem;
+      align-items:center;
+      margin-top:0.7rem;
+    }
+
+    .result-highlight{color:var(--accent);font-weight:600}
+    .result-success{color:var(--success);font-weight:600}
+
+    .result-table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:0.6rem;
+      font-size:0.82rem;
+    }
+    .result-table th,.result-table td{
+      padding:0.35rem 0.4rem;
+      border-bottom:1px solid rgba(15,23,42,0.06);
+      text-align:left;
+    }
+    .result-table th{
+      font-size:0.76rem;
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      color:var(--muted);
     }
 
     /* CONTACT */
@@ -516,6 +592,26 @@
       box-shadow: var(--shadow-soft);
     }
 
+    .mini-map{
+      position:relative;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.08);
+      min-height:200px;
+      background:#141933;
+    }
+    .mini-map img{width:100%;height:100%;object-fit:cover;opacity:0.85}
+    .mini-map-badge{
+      position:absolute;
+      bottom:1rem;left:1rem;
+      background:rgba(5,7,21,0.85);
+      color:#fff;
+      padding:0.35rem 0.7rem;
+      border-radius:999px;
+      font-size:0.72rem;
+      border:1px solid rgba(255,255,255,0.16);
+    }
+
     /* FOOTER */
     footer {
       padding: 1.5rem 0;
@@ -524,7 +620,6 @@
       font-size: 0.78rem;
       text-align: center;
     }
-
   </style>
 </head>
 
@@ -549,14 +644,12 @@
         <a href="#contact">Контакт</a>
       </div>
 
-      <!-- LANGUAGE SWITCHER -->
       <div class="lang-switch">
         <a href="index.html" class="lang-btn">PL</a>
-<a href="index-en.html" class="lang-btn">EN</a>
-<a href="index-ru.html" class="lang-btn">RU</a>
-<a href="index-uk.html" class="lang-btn lang-btn--active">UK</a>
-<a href="index-ar.html" class="lang-btn lang-btn--rtl">AR</a>
-
+        <a href="index-en.html" class="lang-btn">EN</a>
+        <a href="index-ru.html" class="lang-btn">RU</a>
+        <a href="index-uk.html" class="lang-btn lang-btn--active">UK</a>
+        <a href="index-ar.html" class="lang-btn lang-btn--rtl">AR</a>
       </div>
     </nav>
   </div>
@@ -585,7 +678,7 @@
           </p>
 
           <div class="hero-actions">
-            <a href="#ebook" class="btn btn-primary">Отримати інвестиційний гід</a>
+            <a href="#ebook" class="btn btn-primary">Завантажити інвестиційний гід</a>
             <a href="#calculators" class="btn btn-ghost">Розрахувати показники</a>
           </div>
 
@@ -602,10 +695,10 @@
         </div>
 
         <div class="hero-visual">
-          <img src="https://images.unsplash.com/flagged/photo-1559717865-a99cac1c95d8?q=80&w=2071&auto=format&fit=crop" />
+          <img src="https://images.unsplash.com/flagged/photo-1559717865-a99cac1c95d8?q=80&w=2071&auto=format&fit=crop" alt="Преміальний інтер’єр" />
           <div class="hero-tag">
-            <small>Oliwia Super Agent</small>
-            <strong>Вітаємо інвесторів світового рівня</strong>
+            <small>Oliwia Super Agent</small><br/>
+            <strong>Вітаємо інвесторів світового рівня</strong><br/>
             <span>Від першої покупки до створення портфеля.</span>
           </div>
         </div>
@@ -629,33 +722,28 @@
           <div class="service-accent-dot"></div>
           <div class="service-pill">Купівля</div>
           <h3>Конфіденційні придбання</h3>
-          <p>
-            Непублічні пропозиції, прямий доступ до девелоперів та інсайти щодо найдинамічніших районів.
-          </p>
+          <p>Непублічні пропозиції, прямий доступ до девелоперів та інсайти щодо найдинамічніших районів.</p>
         </div>
 
         <div class="service-card">
+          <div class="service-accent-dot"></div>
           <div class="service-pill">Продаж</div>
           <h3>Стратегічний вихід з активу</h3>
-          <p>
-            Професійне ціноутворення, вибірковий маркетинг і лише кваліфіковані покупці.
-          </p>
+          <p>Професійне ціноутворення, вибірковий маркетинг і лише кваліфіковані покупці.</p>
         </div>
 
         <div class="service-card">
+          <div class="service-accent-dot"></div>
           <div class="service-pill">Оренда</div>
           <h3>Надійні преміальні орендарі</h3>
-          <p>
-            Корпоративні оренди, топ-менеджмент і повний супровід орендних процесів.
-          </p>
+          <p>Корпоративні оренди, топ-менеджмент і повний супровід орендних процесів.</p>
         </div>
 
         <div class="service-card">
+          <div class="service-accent-dot"></div>
           <div class="service-pill">Лістинг</div>
           <h3>Розміщення Вашої нерухомості</h3>
-          <p>
-            Подайте дані про Ваш об’єкт за кілька хвилин — я оцінивши, запропоную стратегію реалізації.
-          </p>
+          <p>Подайте дані про Ваш об’єкт за кілька хвилин — я оцінивши, запропоную стратегію реалізації.</p>
         </div>
       </div>
     </div>
@@ -675,9 +763,8 @@
       <div class="why-grid">
         <div>
           <p class="muted">
-            Дубай поєднує <span class="text-accent">строгу інвестиційну логіку</span> із
-            винятково комфортним стилем життя. Для більшості моїх клієнтів
-            цифри говорять самі за себе задовго до появи емоційних факторів.
+            Дубай поєднує <span class="result-highlight">строгу інвестиційну логіку</span> із
+            винятково комфортним стилем життя.
           </p>
 
           <div class="stat-row">
@@ -696,7 +783,7 @@
           </div>
 
           <ul class="bullet-list">
-            <li><div><strong>Нижчі витрати життя.</strong><br/>Житло, авто та щоденні витрати часто суттєво нижчі, ніж у Лондоні, Нью-Йорку, Гонконгу чи Цюриху.</div></li>
+            <li><div><strong>Нижчі витрати життя.</strong><br/>Житло, авто та щоденні витрати часто нижчі, ніж у Лондоні, Нью-Йорку, Гонконгу чи Цюриху.</div></li>
             <li><div><strong>Податкова вигода.</strong><br/>0% прибуткового податку — сильний аргумент для інвесторів.</div></li>
             <li><div><strong>Глобальна мобільність.</strong><br/>Прямі перельоти до ключових фінансових центрів світу.</div></li>
           </ul>
@@ -704,8 +791,8 @@
           <a href="#calculators" class="btn btn-ghost">Порівняти Дубай з іншими містами</a>
         </div>
 
-        <div class="why-photo" style="position:relative;">
-          <img src="https://images.unsplash.com/photo-1721801783842-7133fbf11509?q=80&w=2070&auto=format&fit=crop" />
+        <div class="why-photo">
+          <img src="https://images.unsplash.com/photo-1721801783842-7133fbf11509?q=80&w=2070&auto=format&fit=crop" alt="Дубай" />
           <div class="photo-caption">Дубай: місто стилю життя та інвестиційної стійкості.</div>
         </div>
       </div>
@@ -718,7 +805,7 @@
       <div class="section-header">
         <h2 class="section-title">Безкоштовний інвестиційний eBook</h2>
         <p class="section-subtitle">
-          Короткий, чіткий гід щодо інвестування в нерухомість Дубая — ідеальний початок для серйозних покупців.
+          Короткий, чіткий гід щодо інвестування в нерухомість Дубая — ідеальний старт для серйозних покупців.
         </p>
       </div>
 
@@ -727,31 +814,42 @@
           <div class="badge">Безкоштовне завантаження</div>
 
           <h3>«Чому Ваш наступний великий інвестиційний крок — Дубай»</h3>
-          <p>
+          <p style="color:var(--muted); margin-top:0.5rem;">
             Стисла та змістовна книга про ключові райони, очікувану дохідність,
-            ризики, а також про те, як правильно увійти на ринок з першого дня.
+            ризики та про те, як правильно увійти на ринок з першого дня.
           </p>
 
-          <form class="ebook-form" onsubmit="event.preventDefault(); handleEbookForm();">
-            <input class="input" id="ebook-name" placeholder="Ваше ім’я" required />
-            <input class="input" type="email" id="ebook-email" placeholder="Ваш email" required />
-            <button class="btn btn-primary">Надіслати eBook</button>
+          <!-- FORM: capture via Formspree, then download -->
+          <form
+            class="ebook-form"
+            id="ebook-form"
+            action="https://formspree.io/f/xvgeezqq"
+            method="POST"
+            onsubmit="startEbookDownload(event)"
+          >
+            <input class="input" type="text" name="name" placeholder="Ваше ім’я" required />
+            <input class="input" type="email" name="email" placeholder="Ваш e-mail" required />
+            <input type="hidden" name="language" value="uk" />
+            <button class="btn btn-primary" type="submit">Завантажити eBook</button>
           </form>
 
           <div class="disclaimer" id="ebook-message">
-            Ми не надсилаємо спам. Ви отримаєте коротке підтвердження та посилання для завантаження.
+            Без спаму. Після відправлення форми eBook буде завантажено одразу.
           </div>
         </div>
 
-        <div class="ebook-cover" style="background: radial-gradient(circle at top,#f6d58f,#f3c26b 50%,#5b3a1d 100%); border-radius:18px; padding:1.3rem;">
-          <div class="ebook-ribbon" style="position:absolute;top:0.7rem;right:-2.4rem;transform:rotate(30deg);background:#1d1020;color:#f8e3bb;padding:0.3rem 2.6rem;font-size:0.7rem;letter-spacing:0.1em;">Edition</div>
+        <div class="ebook-cover">
+          <div class="ebook-ribbon">Edition</div>
           <span>Dubai Prime Property</span>
           <h4>Інвестування в Дубаї</h4>
-          <ul style="margin-top:0.6rem;">
+          <ul style="margin-top:0.6rem; padding-left:1rem; font-size:0.86rem;">
             <li>Ключові райони</li>
             <li>Дохідність та зростання</li>
             <li>Порівняння зі світовими столицями</li>
           </ul>
+          <p style="font-size:0.78rem; margin-top:0.8rem;">
+            <strong>PDF</strong> — зручно прочитати в дорозі.
+          </p>
         </div>
       </div>
     </div>
@@ -763,7 +861,7 @@
       <div class="section-header">
         <h2 class="section-title">Розрахунок показників</h2>
         <p class="section-subtitle">
-          Порівняйте вартість життя в Дубаї зі світовими столицями та оцініть потенційне зростання вартості Вашої інвестиційної нерухомості.
+          Порівняйте вартість життя в Дубаї зі світовими столицями та оцініть потенційне зростання вартості Вашої інвестиції.
         </p>
       </div>
 
@@ -790,8 +888,8 @@
           </div>
 
           <div class="card-actions">
-            <button class="btn btn-primary" onclick="runCostComparison()">Порівняти міста</button>
-            <button class="btn btn-ghost" onclick="resetCostComparison()">Скинути</button>
+            <button class="btn btn-primary" type="button" onclick="runCostComparison()">Порівняти міста</button>
+            <button class="btn btn-ghost" type="button" onclick="resetCostComparison()">Скинути</button>
           </div>
 
           <div id="cost-result" class="calc-result">Введіть свій бюджет та натисніть «Порівняти міста».</div>
@@ -826,8 +924,8 @@
           </div>
 
           <div class="card-actions">
-            <button class="btn btn-primary" onclick="runRoiProjection()">Розрахувати</button>
-            <button class="btn btn-ghost" onclick="resetRoiProjection()">Скинути</button>
+            <button class="btn btn-primary" type="button" onclick="runRoiProjection()">Розрахувати</button>
+            <button class="btn btn-ghost" type="button" onclick="resetRoiProjection()">Скинути</button>
           </div>
 
           <div id="roi-result" class="calc-result">Введіть суму інвестиції та період утримання.</div>
@@ -849,7 +947,9 @@
       <div class="contact-card">
         <div class="contact-block">
           <h3>Зв’язатися з Oliwia</h3>
-          <p>Опишіть свої цілі, бюджет та бажані терміни — я надам персоналізовані рекомендації та можливі варіанти.</p>
+          <p style="color:var(--muted); margin-bottom:0.9rem;">
+            Опишіть свої цілі, бюджет та бажані терміни — я надам персоналізовані рекомендації та можливі варіанти.
+          </p>
 
           <div class="field-group">
             <div class="field">
@@ -873,27 +973,27 @@
             </select>
           </div>
 
-          <div class="field">
+          <div class="field" style="margin-top:0.9rem;">
             <label for="contact-message">Повідомлення</label>
-            <textarea id="contact-message" rows="4" style="width:100%;padding:0.6rem;border-radius:10px;border:1px solid var(--border-soft);" placeholder="Ваші плани, бюджет, побажання…"></textarea>
+            <textarea id="contact-message" rows="4"
+              style="width:100%;padding:0.6rem;border-radius:10px;border:1px solid var(--border-soft);font-family:Inter,sans-serif;"
+              placeholder="Ваші плани, бюджет, побажання…"></textarea>
           </div>
 
-          <div class="card-actions">
-            <button class="btn btn-primary" onclick="composeEmail()">Надіслати Email</button>
+          <div class="card-actions" style="margin-top:0.9rem;">
+            <button class="btn btn-primary" type="button" onclick="composeEmail()">Надіслати Email</button>
             <small class="muted">Відкриється Ваш поштовий клієнт із заповненим листом.</small>
           </div>
 
-          <div class="contact-details" style="margin-top:1.1rem;">
-            <div><span>Email:</span> oliwia@oliwiasuperagent.com</div>
-            <div><span>WhatsApp:</span> +971 58 517 1884</div>
+          <div class="contact-details" style="margin-top:1.1rem; color:var(--muted); font-size:0.86rem;">
+            <div><span style="color:var(--text)">Email:</span> oliwia@oliwiasuperagent.com</div>
+            <div><span style="color:var(--text)">WhatsApp:</span> +971 58 517 1884</div>
           </div>
         </div>
 
-        <div class="mini-map" style="position:relative;border-radius:18px;overflow:hidden;">
-          <img src="https://images.unsplash.com/photo-1553324534-56ea3fe6e930?q=80&w=1064&auto=format&fit=crop" />
-          <div class="mini-map-badge" style="position:absolute;bottom:1rem;left:1rem;background:rgba(5,7,21,0.85);color:#fff;padding:0.35rem 0.7rem;border-radius:999px;font-size:0.72rem;">
-            Обслуговування преміальних районів Дубая
-          </div>
+        <div class="mini-map">
+          <img src="https://images.unsplash.com/photo-1553324534-56ea3fe6e930?q=80&w=1064&auto=format&fit=crop" alt="Dubai" />
+          <div class="mini-map-badge">Обслуговування преміальних районів Дубая</div>
         </div>
       </div>
     </div>
@@ -908,8 +1008,10 @@
 </footer>
 
 <script>
+  // footer year
   document.getElementById("year").textContent = new Date().getFullYear();
 
+  // smooth scroll
   document.addEventListener("click", function (e) {
     const link = e.target.closest('a[href^="#"]');
     if (!link) return;
@@ -918,31 +1020,43 @@
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
-        window.scrollTo({
-          top: target.offsetTop - 80,
-          behavior: "smooth"
-        });
+        window.scrollTo({ top: target.offsetTop - 80, behavior: "smooth" });
       }
     }
   });
 
-  function handleEbookForm() {
-    const name = ebook-name.value.trim();
-    const email = ebook-email.value.trim();
+  /* =========================================
+     eBook: submit to Formspree, then download
+     ========================================= */
+  function startEbookDownload(e) {
+    // prevent page navigation away before we trigger download
+    if (e) e.preventDefault();
 
-    if (!name || !email) {
-      ebook-message.textContent = "Будь ласка, введіть ім’я та коректний email.";
-      ebook-message.style.color = "var(--danger)";
-      return;
+    const form = document.getElementById("ebook-form");
+    const msg = document.getElementById("ebook-message");
+
+    // optional UI feedback
+    if (msg) {
+      msg.textContent = "Дякуємо! Завантаження починається…";
+      msg.style.color = "var(--success)";
     }
 
-    ebook-message.innerHTML =
-      "Дякуємо, <span class='result-highlight'>" + name +
-      "</span>. Перевірте <strong>" + email +
-      "</strong> — Ви отримаєте посилання для завантаження.";
-    ebook-message.style.color = "var(--success)";
+    // send form in background (Formspree)
+    try {
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "application/json" }
+      }).catch(() => {});
+    } catch (_) {}
+
+    // trigger download
+    setTimeout(function () {
+      window.location.href = "/ebooks/dubai-investment-guide.pdf";
+    }, 150);
   }
 
+  // calculators data
   const cityData = [
     { name: "Дубай", costIndex: 1.0, taxRate: 0.00 },
     { name: "Лондон", costIndex: 1.6, taxRate: 0.25 },
@@ -953,12 +1067,11 @@
   ];
 
   function formatCurrency(v) {
-    return "$" + v.toLocaleString("en-US",{maximumFractionDigits:0});
+    return "$" + Number(v).toLocaleString("en-US", { maximumFractionDigits: 0 });
   }
 
   function runCostComparison() {
-    const budget = parseFloat(document.getElementById("budget").value);
-    const housingShare = parseFloat(document.getElementById("housing-share").value);
+    const budget = parseFloat(document.getElementById("budget").value || 0);
     const resultEl = document.getElementById("cost-result");
 
     if (!budget) {
@@ -966,25 +1079,12 @@
       return;
     }
 
-    let html = "<div>Ваш бюджет у Дубаї: <span class='result-highlight'>" +
-      formatCurrency(budget) + "</span> на місяць.</div>";
+    let html = "<table class='result-table'><thead><tr><th>Місто</th><th>Потрібний бюджет</th></tr></thead><tbody>";
 
-    html += "<table class='result-table'><thead><tr>" +
-      "<th>Місто</th><th>Потрібний бюджет</th><th>Різниця</th><th>Податок / рік</th>" +
-      "</tr></thead><tbody>";
-
-    for (let i=1;i<cityData.length;i++){
+    for (let i = 1; i < cityData.length; i++) {
       const c = cityData[i];
       const needed = budget * c.costIndex;
-      const diff = (c.costIndex - 1) * 100;
-      const tax = needed * 12 * c.taxRate;
-
-      html += `<tr>
-        <td>${c.name}</td>
-        <td>${formatCurrency(needed)}/міс</td>
-        <td>+${diff.toFixed(0)}%</td>
-        <td>${c.taxRate > 0 ? formatCurrency(tax) + "/рік" : "N/A"}</td>
-      </tr>`;
+      html += `<tr><td>${c.name}</td><td>${formatCurrency(needed)}/міс</td></tr>`;
     }
 
     html += "</tbody></table>";
@@ -999,9 +1099,10 @@
   }
 
   function runRoiProjection() {
-    const amount = parseFloat(document.getElementById("investment-amount").value);
-    const years = parseInt(document.getElementById("investment-years").value);
+    const amount = parseFloat(document.getElementById("investment-amount").value || 0);
+    const years = parseInt(document.getElementById("investment-years").value || 0, 10);
     const rate = parseFloat(document.getElementById("growth-scenario").value);
+
     const resultEl = document.getElementById("roi-result");
 
     if (!amount || !years) {
@@ -1010,15 +1111,8 @@
     }
 
     const future = amount * Math.pow(1 + rate, years);
-    const gain = future - amount;
-
     resultEl.innerHTML =
-      `<div>Через <span class='result-highlight'>${years} р.</span> інвестиція в 
-      <span class='result-highlight'>${formatCurrency(amount)}</span> може досягти:</div>
-      <ul>
-        <li>Майбутня вартість: <span class='result-success'>${formatCurrency(future)}</span></li>
-        <li>Приріст: <span class='result-highlight'>${formatCurrency(gain)}</span></li>
-      </ul>`;
+      `Орієнтовна майбутня вартість: <span class="result-success">${formatCurrency(future)}</span>`;
   }
 
   function resetRoiProjection() {
@@ -1026,14 +1120,14 @@
     document.getElementById("investment-years").value = "";
     document.getElementById("growth-scenario").value = "0.06";
     document.getElementById("roi-result").textContent =
-      "Введіть суму інвестиції та період.";
+      "Введіть суму інвестиції та період утримання.";
   }
 
   function composeEmail() {
-    const name = contact-name.value;
-    const email = contact-email.value;
-    const intent = contact-intent.value;
-    const msg = contact-message.value;
+    const name = document.getElementById("contact-name").value || "";
+    const email = document.getElementById("contact-email").value || "";
+    const intent = document.getElementById("contact-intent").value || "";
+    const msg = document.getElementById("contact-message").value || "";
 
     const map = {
       buy: "Купівля нерухомості",
@@ -1043,15 +1137,12 @@
       invest: "Інвестиційна консультація"
     };
 
-    const subject = encodeURIComponent("Запит щодо нерухомості — " + map[intent]);
+    const subject = encodeURIComponent("Запит щодо нерухомості — " + (map[intent] || "Дубай"));
+    const body = encodeURIComponent(
+      `Ім’я: ${name}\nEmail: ${email}\nЦіль: ${map[intent] || intent}\n\nПовідомлення:\n${msg}`
+    );
 
-    let body =
-      "Ім’я: " + name + "%0D%0A" +
-      "Email: " + email + "%0D%0A" +
-      "Ціль: " + map[intent] + "%0D%0A" +
-      "%0D%0AПовідомлення:%0D%0A" + msg;
-
-    window.location.href = "mailto:oliwia@oliwiasuperagent.com?subject=" + subject + "&body=" + body;
+    window.location.href = `mailto:oliwia@oliwiasuperagent.com?subject=${subject}&body=${body}`;
   }
 </script>
 
