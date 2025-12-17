@@ -580,7 +580,7 @@
 
     .ebook-card p {
       font-size: 0.9rem;
-      color: #ffffff;
+      color: var(--muted);
       margin-bottom: 1rem;
     }
 
@@ -1204,11 +1204,31 @@
             чтобы Вы изначально выстроили правильную структуру владения.
           </p>
 
-          <form class="ebook-form" onsubmit="event.preventDefault(); handleEbookForm();">
-            <input class="input" type="text" id="ebook-name" placeholder="Ваше имя" required />
-            <input class="input" type="email" id="ebook-email" placeholder="Ваш лучший e-mail" required />
-            <button type="submit" class="btn btn-primary">Выслать e-буклет на почту</button>
-          </form>
+          <form
+  class="ebook-form"
+  action="https://formspree.io/f/xvgeezqq"
+  method="POST"
+  onsubmit="startEbookDownload()"
+>
+  <input
+    class="input"
+    type="text"
+    name="name"
+    placeholder="Ваше имя"
+    required
+  />
+  <input
+    class="input"
+    type="email"
+    name="email"
+    placeholder="Ваш лучший e-mail"
+    required
+  />
+  <button type="submit" class="btn btn-primary">
+    Выслать e-буклет на почту
+  </button>
+</form>
+
           <div class="disclaimer" id="ebook-message">
             Никакого спама. Вы получите короткое подтверждение и ссылку на скачивание.
           </div>
@@ -1415,209 +1435,118 @@
 </footer>
 
 <script>
-  // Smooth scroll for in-page anchor links
+  // Smooth scroll
   document.addEventListener("click", function (e) {
     const link = e.target.closest('a[href^="#"]');
     if (!link) return;
-    const href = link.getAttribute("href");
-    if (href.length > 1) {
-      const target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        window.scrollTo({
-          top: target.offsetTop - 80,
-          behavior: "smooth"
-        });
-      }
-    }
+    const target = document.querySelector(link.getAttribute("href"));
+    if (!target) return;
+    e.preventDefault();
+    window.scrollTo({
+      top: target.offsetTop - 80,
+      behavior: "smooth"
+    });
   });
 
-  // Dynamic year in footer
+  // Footer year
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // eBook form handling (placeholder behavior for static site)
-  function handleEbookForm() {
-    const name = document.getElementById("ebook-name").value.trim();
-    const email = document.getElementById("ebook-email").value.trim();
-    const messageEl = document.getElementById("ebook-message");
-
-    if (!name || !email) {
-      messageEl.textContent = "Пожалуйста, введите имя и корректный e-mail.";
-      messageEl.style.color = "var(--danger)";
-      return;
-    }
-
-    messageEl.innerHTML =
-      "Спасибо, <span class='result-highlight'>" + name +
-      "</span>. Пожалуйста, проверьте адрес <strong>" + email +
-      "</strong> — после настройки рассылки сюда будет отправлена ссылка на скачивание.";
-    messageEl.style.color = "var(--success)";
+  /* =========================================
+     eBook browser download (Formspree flow)
+     ========================================= */
+  function startEbookDownload() {
+    setTimeout(function () {
+      window.location.href = "/ebooks/dubai-investment-guide.pdf";
+    }, 150);
   }
 
-  // Cost of living comparison data
+  // Cost comparison data
   const cityData = [
-    { name: "Дубай",     costIndex: 1.0, taxRate: 0.00 },
-    { name: "Лондон",    costIndex: 1.6, taxRate: 0.25 },
-    { name: "Нью-Йорк",  costIndex: 1.8, taxRate: 0.27 },
-    { name: "Гонконг",   costIndex: 1.7, taxRate: 0.15 },
-    { name: "Сингапур",  costIndex: 1.5, taxRate: 0.20 },
-    { name: "Цюрих",     costIndex: 1.9, taxRate: 0.22 }
+    { name: "Дубай", costIndex: 1.0, taxRate: 0.0 },
+    { name: "Лондон", costIndex: 1.6, taxRate: 0.25 },
+    { name: "Нью-Йорк", costIndex: 1.8, taxRate: 0.27 },
+    { name: "Гонконг", costIndex: 1.7, taxRate: 0.15 },
+    { name: "Сингапур", costIndex: 1.5, taxRate: 0.2 },
+    { name: "Цюрих", costIndex: 1.9, taxRate: 0.22 }
   ];
 
   function formatCurrency(value) {
-    if (!isFinite(value)) return "-";
     return "$" + value.toLocaleString("en-US", { maximumFractionDigits: 0 });
   }
 
   function runCostComparison() {
-    const budgetInput = document.getElementById("budget");
-    const housingShareInput = document.getElementById("housing-share");
+    const budget = parseFloat(document.getElementById("budget").value || 0);
     const resultEl = document.getElementById("cost-result");
 
-    const budget = parseFloat(budgetInput.value || "0");
-    const housingShare = parseFloat(housingShareInput.value || "0.4");
-
-    if (!budget || budget <= 0) {
-      resultEl.textContent = "Пожалуйста, введите реалистичный месячный бюджет (напр. 8000).";
+    if (!budget) {
+      resultEl.textContent =
+        "Введите месячный бюджет для сравнения городов.";
       return;
     }
 
-    let html = "";
-    html += "<div>При месячном бюджете в <span class='result-highlight'>" +
-      formatCurrency(budget) +
-      "</span> в Дубае, вот сколько примерно потребуется в других городах, чтобы поддерживать сопоставимый уровень жизни:</div>";
-
-    html += "<table class='result-table'><thead><tr>" +
-      "<th>Город</th><th>Необходимый бюджет</th><th>↑ vs Дубай</th><th>Оценка годового налога</th>" +
-      "</tr></thead><tbody>";
-
-    for (let i = 1; i < cityData.length; i++) {
-      const city = cityData[i];
-      const requiredBudget = budget * city.costIndex;
-      const diffPercent = (city.costIndex - 1) * 100;
-      const annualTax = requiredBudget * 12 * city.taxRate;
-
-      html += "<tr>";
-      html += "<td>" + city.name + "</td>";
-      html += "<td>" + formatCurrency(requiredBudget) + "/мес</td>";
-      html += "<td>+" + diffPercent.toFixed(0) + "%</td>";
-      html += "<td>" + (city.taxRate > 0 ? formatCurrency(annualTax) + "/год" : "N/A") + "</td>";
-      html += "</tr>";
-    }
+    let html = "<table class='result-table'><tbody>";
+    cityData.slice(1).forEach(city => {
+      html += `
+        <tr>
+          <td>${city.name}</td>
+          <td>${formatCurrency(budget * city.costIndex)}/мес</td>
+        </tr>
+      `;
+    });
     html += "</tbody></table>";
-
-    const london = cityData[1];
-    const londonBudget = budget * london.costIndex;
-    const annualSavings = (londonBudget - budget) * 12;
-
-    html += "<div style='margin-top:0.8rem; font-size:0.85rem;'>";
-    html += "Пример: по сравнению с Лондоном Ваш бюджет на жизнь в Дубае позволяет экономить примерно ";
-    html += "<span class='result-success'>" + formatCurrency(annualSavings) + " в год</span>, ";
-    html += "ещё до учёта нулевого налога на личный доход в Дубае.";
-    html += "</div>";
-
-    html += "<div style='margin-top:0.6rem; font-size:0.82rem;' class='muted'>";
-    html += "Все расчёты являются иллюстративными и не заменяют профессиональную финансовую или налоговую консультацию.";
-    html += "</div>";
 
     resultEl.innerHTML = html;
   }
 
   function resetCostComparison() {
-    const budgetInput = document.getElementById("budget");
-    const housingShareInput = document.getElementById("housing-share");
-    const resultEl = document.getElementById("cost-result");
-
-    if (budgetInput) budgetInput.value = "";
-    if (housingShareInput) housingShareInput.value = "0.4";
-
-    if (resultEl) {
-      resultEl.textContent = "Введите Ваш месячный бюджет и нажмите «Сравнить города», чтобы увидеть результаты.";
-    }
+    document.getElementById("budget").value = "";
+    document.getElementById("cost-result").textContent =
+      "Введите бюджет и нажмите «Сравнить города».";
   }
 
-  // ROI projection
   function runRoiProjection() {
-    const amountInput = document.getElementById("investment-amount");
-    const yearsInput = document.getElementById("investment-years");
-    const scenarioInput = document.getElementById("growth-scenario");
+    const amount = parseFloat(document.getElementById("investment-amount").value || 0);
+    const years = parseInt(document.getElementById("investment-years").value || 0, 10);
+    const rate = parseFloat(document.getElementById("growth-scenario").value);
+
     const resultEl = document.getElementById("roi-result");
-
-    const amount = parseFloat(amountInput.value || "0");
-    const years = parseInt(yearsInput.value || "0", 10);
-    const rate = parseFloat(scenarioInput.value || "0.06");
-
-    if (!amount || amount <= 0 || !years || years <= 0) {
-      resultEl.textContent = "Пожалуйста, введите сумму инвестиций и горизонт владения.";
+    if (!amount || !years) {
+      resultEl.textContent =
+        "Введите сумму и срок инвестирования.";
       return;
     }
 
-    const futureValue = amount * Math.pow(1 + rate, years);
-    const totalGain = futureValue - amount;
-    const annualized = (Math.pow(futureValue / amount, 1 / years) - 1) * 100;
-
-    let html = "";
-    html += "<div>При начальной инвестиции в <span class='result-highlight'>" + formatCurrency(amount) +
-      "</span> и горизонте <span class='result-highlight'>" + years + " год(а/лет)" +
-      "</span> при предполагаемом росте <span class='result-highlight'>" + (rate * 100).toFixed(1) + "% в год</span>:</div>";
-
-    html += "<ul style='margin-top:0.7rem; padding-left:1em; font-size:0.88rem;'>";
-    html += "<li>Ориентировочная будущая стоимость: <span class='result-success'>" + formatCurrency(futureValue) + "</span></li>";
-    html += "<li>Суммарный нереализованный прирост капитала: <span class='result-highlight'>" + formatCurrency(totalGain) + "</span></li>";
-    html += "<li>Оценочная среднегодовая доходность: " + annualized.toFixed(1) + "%</li>";
-    html += "</ul>";
-
-    html += "<div style='margin-top:0.7rem; font-size:0.82rem;' class='muted'>";
-    html += "Это упрощённый расчёт на основе сложного процента и не учитывает кредитное плечо, комиссии, валютные риски и волатильность рынка. ";
-    html += "Для персональной модели под конкретные районы, планы застройщика и структуру финансирования свяжитесь со мной напрямую.";
-    html += "</div>";
-
-    resultEl.innerHTML = html;
+    const future = amount * Math.pow(1 + rate, years);
+    resultEl.innerHTML =
+      "Ориентировочная будущая стоимость: <strong>" +
+      formatCurrency(future) +
+      "</strong>";
   }
 
   function resetRoiProjection() {
-    const amountInput = document.getElementById("investment-amount");
-    const yearsInput = document.getElementById("investment-years");
-    const scenarioInput = document.getElementById("growth-scenario");
-    const resultEl = document.getElementById("roi-result");
-
-    if (amountInput) amountInput.value = "";
-    if (yearsInput) yearsInput.value = "";
-    if (scenarioInput) scenarioInput.value = "0.06";
-
-    if (resultEl) {
-      resultEl.textContent = "Введите сумму инвестиций и горизонт владения, чтобы увидеть ориентировочный прогноз.";
-    }
+    document.getElementById("investment-amount").value = "";
+    document.getElementById("investment-years").value = "";
+    document.getElementById("growth-scenario").value = "0.06";
+    document.getElementById("roi-result").textContent =
+      "Введите параметры для расчёта.";
   }
 
-  // Compose email from contact form (opens user's email client)
   function composeEmail() {
-    const name = document.getElementById("contact-name").value.trim();
-    const email = document.getElementById("contact-email").value.trim();
-    const intent = document.getElementById("contact-intent").value;
-    const message = document.getElementById("contact-message").value.trim();
+    const name = document.getElementById("contact-name").value || "";
+    const email = document.getElementById("contact-email").value || "";
+    const intent = document.getElementById("contact-intent").value || "";
+    const message = document.getElementById("contact-message").value || "";
 
-    const intentLabelMap = {
-      buy: "Покупка в Дубае",
-      sell: "Продажа объекта в Дубае",
-      lease: "Аренда / сдача в аренду в Дубае",
-      list: "Разместить объект для аренды",
-      invest: "Обсудить инвестиционный портфель"
-    };
+    const subject = encodeURIComponent("Запрос по недвижимости в Дубае");
+    const body = encodeURIComponent(
+      `Имя: ${name}\nEmail: ${email}\nЦель: ${intent}\n\nСообщение:\n${message}`
+    );
 
-    const subject = encodeURIComponent("Запрос по недвижимости в Дубае – " + (intentLabelMap[intent] || "Запрос"));
-
-    let body = "";
-    body += "Имя: " + (name || "(не указано)") + "%0D%0A";
-    body += "E-mail: " + (email || "(не указан)") + "%0D%0A";
-    body += "Цель: " + (intentLabelMap[intent] || "") + "%0D%0A%0D%0A";
-    body += "Сообщение:%0D%0A" + (message || "(сообщение не указано)") + "%0D%0A";
-
-    const to = "oliwia@oliwiasuperagent.com";
-
-    window.location.href = "mailto:" + to + "?subject=" + subject + "&body=" + body;
+    window.location.href =
+      `mailto:oliwia@oliwiasuperagent.com?subject=${subject}&body=${body}`;
   }
 </script>
+
 
 </body>
 </html>
