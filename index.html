@@ -1258,15 +1258,36 @@ padding: 0.15rem 0.7rem;
             wejścia na rynek nieruchomości w Dubaju już od pierwszego dnia.
           </p>
 
-          <form class="ebook-form" onsubmit="event.preventDefault(); handleEbookForm();">
-            <input class="input" type="text" id="ebook-name" placeholder="Imię i nazwisko" required />
-            <input class="input" type="email" id="ebook-email" placeholder="Najlepszy adres e-mail" required />
-            <button type="submit" class="btn btn-primary">Wyślij mi e-book na e-mail</button>
-          </form>
-          <div class="disclaimer" id="ebook-message">
-            Nigdy nie wysyłam spamu. Proszę oczekiwać krótkiego potwierdzenia oraz linku do pobrania.
-          </div>
-        </div>
+          <form
+  class="ebook-form"
+  method="POST"
+  action="https://formspree.io/f/xvgeezqq"
+  target="_blank"
+  onsubmit="startEbookDownload()"
+>
+  <input
+    class="input"
+    type="text"
+    name="name"
+    placeholder="Imię i nazwisko"
+    required
+  >
+
+  <input
+    class="input"
+    type="email"
+    name="email"
+    placeholder="Najlepszy adres e-mail"
+    required
+  >
+
+  <input type="hidden" name="source" value="Dubai Investment Ebook PL">
+
+  <button type="submit" class="btn btn-primary">
+    Pobierz e-book
+  </button>
+</form>
+
 
         <div class="ebook-cover">
           <div class="ebook-ribbon">Wydanie dla inwestorów</div>
@@ -1490,17 +1511,15 @@ padding: 0.15rem 0.7rem;
   // Dynamic year in footer
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // eBook form handling (placeholder behavior for static site)
-  function handleEbookForm() {
-    const name = document.getElementById("ebook-name").value.trim();
-    const email = document.getElementById("ebook-email").value.trim();
-    const messageEl = document.getElementById("ebook-message");
+/* =========================================
+   eBook browser download (Formspree flow)
+   ========================================= */
+function startEbookDownload() {
+  setTimeout(function () {
+    window.location.href = "/ebooks/dubai-investment-guide.pdf";
+  }, 150);
+}
 
-    if (!name || !email) {
-      messageEl.textContent = "Proszę podać imię i nazwisko oraz prawidłowy adres e-mail.";
-      messageEl.style.color = "var(--danger)";
-      return;
-    }
 
     messageEl.innerHTML =
       "Dziękujemy, <span class='result-highlight'>" + name +
