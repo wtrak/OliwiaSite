@@ -1210,40 +1210,36 @@
             entry into Dubai real estate correctly from day one.
           </p>
 
-          <form class="ebook-form" id="ebook-form">
+         <form
+  class="ebook-form"
+  method="POST"
+  action="https://formspree.io/f/xvgeezqq"
+  onsubmit="startEbookDownload()"
+>
   <input
     class="input"
     type="text"
-    name="FIRSTNAME"
+    name="name"
     placeholder="Your name"
     required
-  />
+  >
 
   <input
     class="input"
     type="email"
-    name="EMAIL"
+    name="email"
     placeholder="Your best email"
     required
-  />
-
-  <!-- Hidden metadata -->
-  <input type="hidden" name="SOURCE" value="Dubai Investment Ebook EN">
-  <input type="hidden" name="LANGUAGE" value="EN">
-
-  <!-- Honeypot (anti-bot) -->
-  <input
-    type="text"
-    name="company"
-    tabindex="-1"
-    autocomplete="off"
-    style="position:absolute; left:-9999px;"
   >
 
+  <input type="hidden" name="source" value="Dubai Investment Ebook EN">
+
   <button type="submit" class="btn btn-primary">
-    Email me the eBook
+    Get the eBook
   </button>
 </form>
+
+
 
 
         <div class="ebook-cover">
@@ -1447,10 +1443,13 @@
 </footer>
 
 <script>
-  // Smooth scroll for in-page anchor links
+  /* =========================================
+     Smooth scroll for in-page anchor links
+     ========================================= */
   document.addEventListener("click", function (e) {
     const link = e.target.closest('a[href^="#"]');
     if (!link) return;
+
     const href = link.getAttribute("href");
     if (href.length > 1) {
       const target = document.querySelector(href);
@@ -1464,57 +1463,27 @@
     }
   });
 
-  // Dynamic year in footer
-  document.getElementById("year").textContent = new Date().getFullYear();
+  /* =========================================
+     Dynamic year in footer
+     ========================================= */
+  const yearEl = document.getElementById("year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
 
-  const ebookForm = document.getElementById("ebook-form");
-const ebookMessage = document.getElementById("ebook-message");
+  /* =========================================
+     eBook browser download (Formspree flow)
+     ========================================= */
+  function startEbookDownload() {
+    // Small delay ensures the form POST completes
+    setTimeout(function () {
+      window.location.href = "/ebooks/dubai-investment-guide.pdf";
+    }, 150);
+  }
 
-if (ebookForm && ebookMessage) {
-  ebookForm.addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    ebookMessage.style.color = "var(--muted)";
-    ebookMessage.textContent = "Sending your guide…";
-
-    const formData = new FormData(ebookForm);
-
-    // Honeypot bot protection
-    if (formData.get("company")) {
-      return;
-    }
-
-    try {
-      await fetch(
-        "https://cdb442af.sibforms.com/serve/MUIFAAXLH4Lz8Y06DWvcDlVRmsDlU1KoxH0HUFrfKYwBlSPyDQebSR-qsBf1VEHOgFGVgynZw7al7_SfG4DiRierRtOskVAhwdOsrATPRgrZcXGa-52OBSTopRjKQWCwCedTL1TFxyS9M1BmLl-kSj34Dvec56NyYanNWF-6SW8gGZn8wkYrCQM3wIPlWNVY8yV812SG1VHtZ4Nm0A==",
-        {
-          method: "POST",
-          body: formData,
-          mode: "no-cors"
-        }
-      );
-
-      ebookMessage.innerHTML =
-        "Thank you. Your <strong>Dubai Investment Guide</strong> has been sent to your email.<br>" +
-        "<span class='muted'>If you don’t see it within a minute, please check spam or promotions.</span>";
-      ebookMessage.style.color = "var(--success)";
-
-      ebookForm.querySelectorAll("input, button").forEach(el => {
-        el.disabled = true;
-        el.style.opacity = "0.7";
-      });
-
-    } catch (error) {
-      ebookMessage.textContent =
-        "Something went wrong. Please refresh the page and try again.";
-      ebookMessage.style.color = "var(--danger)";
-    }
-  });
-}
-
-
-
-  // Cost of living comparison data
+  /* =========================================
+     Cost of living comparison data
+     ========================================= */
   const cityData = [
     { name: "Dubai",     costIndex: 1.0, taxRate: 0.00 },
     { name: "London",    costIndex: 1.6, taxRate: 0.25 },
@@ -1564,6 +1533,7 @@ if (ebookForm && ebookMessage) {
       html += "<td>" + (city.taxRate > 0 ? formatCurrency(annualTax) + "/yr" : "N/A") + "</td>";
       html += "</tr>";
     }
+
     html += "</tbody></table>";
 
     const london = cityData[1];
@@ -1590,13 +1560,14 @@ if (ebookForm && ebookMessage) {
 
     if (budgetInput) budgetInput.value = "";
     if (housingShareInput) housingShareInput.value = "0.4";
-
     if (resultEl) {
-      resultEl.textContent = 'Enter your monthly budget and click “Compare Cities” to see results.';
+      resultEl.textContent = "Enter your monthly budget and click “Compare Cities” to see results.";
     }
   }
 
-  // ROI projection
+  /* =========================================
+     ROI projection
+     ========================================= */
   function runRoiProjection() {
     const amountInput = document.getElementById("investment-amount");
     const yearsInput = document.getElementById("investment-years");
@@ -1618,8 +1589,10 @@ if (ebookForm && ebookMessage) {
 
     let html = "";
     html += "<div>Based on an initial investment of <span class='result-highlight'>" + formatCurrency(amount) +
-      "</span> held for <span class='result-highlight'>" + years + " year" + (years > 1 ? "s" : "") +
-      "</span> at an assumed <span class='result-highlight'>" + (rate * 100).toFixed(1) + "%</span> annual growth:</div>";
+      "</span> held for <span class='result-highlight'>" + years +
+      " year" + (years > 1 ? "s" : "") +
+      "</span> at an assumed <span class='result-highlight'>" +
+      (rate * 100).toFixed(1) + "%</span> annual growth:</div>";
 
     html += "<ul style='margin-top:0.7rem; padding-left:1em; font-size:0.88rem;'>";
     html += "<li>Projected future value: <span class='result-success'>" + formatCurrency(futureValue) + "</span></li>";
@@ -1628,8 +1601,7 @@ if (ebookForm && ebookMessage) {
     html += "</ul>";
 
     html += "<div style='margin-top:0.7rem; font-size:0.82rem;' class='muted'>";
-    html += "These are simplified projections using compound growth and do not account for financing, fees, currency movements, or market volatility. ";
-    html += "For a tailored model reflecting specific communities, payment plans, and leverage, please reach out for a private consultation.";
+    html += "These are simplified projections using compound growth and do not account for financing, fees, currency movements, or market volatility.";
     html += "</div>";
 
     resultEl.innerHTML = html;
@@ -1644,14 +1616,14 @@ if (ebookForm && ebookMessage) {
     if (amountInput) amountInput.value = "";
     if (yearsInput) yearsInput.value = "";
     if (scenarioInput) scenarioInput.value = "0.06";
-
     if (resultEl) {
-      resultEl.textContent =
-        "Enter an investment amount and holding period to see projected values.";
+      resultEl.textContent = "Enter an investment amount and holding period to see projected values.";
     }
   }
 
-  // Compose email from contact form (opens user's email client)
+  /* =========================================
+     Contact form mailto
+     ========================================= */
   function composeEmail() {
     const name = document.getElementById("contact-name").value.trim();
     const email = document.getElementById("contact-email").value.trim();
@@ -1666,7 +1638,9 @@ if (ebookForm && ebookMessage) {
       invest: "Investment portfolio discussion"
     };
 
-    const subject = encodeURIComponent("Dubai Real Estate Enquiry – " + (intentLabelMap[intent] || "Enquiry"));
+    const subject = encodeURIComponent(
+      "Dubai Real Estate Enquiry – " + (intentLabelMap[intent] || "Enquiry")
+    );
 
     let body = "";
     body += "Name: " + (name || "(not provided)") + "%0D%0A";
@@ -1674,11 +1648,11 @@ if (ebookForm && ebookMessage) {
     body += "Objective: " + (intentLabelMap[intent] || "") + "%0D%0A%0D%0A";
     body += "Message:%0D%0A" + (message || "(no message yet)") + "%0D%0A";
 
-    const to = "oliwia@oliwiasuperagent.com";
-
-    window.location.href = "mailto:" + to + "?subject=" + subject + "&body=" + body;
+    window.location.href =
+      "mailto:oliwia@oliwiasuperagent.com?subject=" + subject + "&body=" + body;
   }
 </script>
+
 
 </body>
 </html>
