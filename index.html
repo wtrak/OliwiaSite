@@ -1258,40 +1258,21 @@ padding: 0.15rem 0.7rem;
             wejścia na rynek nieruchomości w Dubaju już od pierwszego dnia.
           </p>
 
-          <form
+         <form
   class="ebook-form"
   method="POST"
   action="https://formspree.io/f/xvgeezqq"
   target="_blank"
 >
+  <input class="input" type="text" name="name" placeholder="Imię i nazwisko" required />
+  <input class="input" type="email" name="email" placeholder="Najlepszy adres e-mail" required />
+  <input type="hidden" name="source" value="Dubai Investment Ebook PL" />
 
-  <input
-    class="input"
-    type="text"
-    name="name"
-    placeholder="Imię i nazwisko"
-    required
-  >
-
-  <input
-    class="input"
-    type="email"
-    name="email"
-    placeholder="Najlepszy adres e-mail"
-    required
-  >
-
-  <input type="hidden" name="source" value="Dubai Investment Ebook PL">
-
-  <button
-  type="submit"
-  class="btn btn-primary"
-  onclick="startEbookDownload()"
->
-  Pobierz e-book
-</button>
-
+  <button type="submit" class="btn btn-primary" onclick="startEbookDownload()">
+    Pobierz e-book
+  </button>
 </form>
+
 
 
         <div class="ebook-cover">
@@ -1703,6 +1684,13 @@ function startEbookDownload() {
 
     window.location.href = "mailto:" + to + "?subject=" + subject + "&body=" + body;
   }
+
+  function startEbookDownload() {
+  setTimeout(function () {
+    window.location.href = "/ebooks/dubai-investment-guide.pdf";
+  }, 150);
+}
+
 </script>
 
 </body>
