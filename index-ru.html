@@ -1206,10 +1206,9 @@
 
           <form
   class="ebook-form"
-  action="https://formspree.io/f/xvgeezqq"
-  method="POST"
-  onsubmit="startEbookDownload()"
+  onsubmit="submitEbookForm(event)"
 >
+
   <input
     class="input"
     type="text"
@@ -1454,10 +1453,29 @@
   /* =========================================
      eBook browser download (Formspree flow)
      ========================================= */
-  function startEbookDownload() {
-    setTimeout(function () {
+ function submitEbookForm(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+    fetch("https://formspree.io/f/xvgeezqq", {
+      method: "POST",
+      body: formData,
+      headers: {
+        "Accept": "application/json"
+      }
+    })
+    .then(response => {
+      // Fire download regardless of response speed
+      setTimeout(() => {
+        window.location.href = "/ebooks/dubai-investment-guide.pdf";
+      }, 200);
+    })
+    .catch(() => {
+      // Still allow download even if Formspree hiccups
       window.location.href = "/ebooks/dubai-investment-guide.pdf";
-    }, 150);
+    });
   }
 
   // Cost comparison data
