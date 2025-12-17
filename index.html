@@ -1477,10 +1477,13 @@ padding: 0.15rem 0.7rem;
 </footer>
 
 <script>
-  // Smooth scroll for in-page anchor links
+  /* =========================================
+     Smooth scroll for in-page anchor links
+     ========================================= */
   document.addEventListener("click", function (e) {
     const link = e.target.closest('a[href^="#"]');
     if (!link) return;
+
     const href = link.getAttribute("href");
     if (href.length > 1) {
       const target = document.querySelector(href);
@@ -1494,27 +1497,26 @@ padding: 0.15rem 0.7rem;
     }
   });
 
-  // Dynamic year in footer
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-/* =========================================
-   eBook browser download (Formspree flow)
-   ========================================= */
-function startEbookDownload() {
-  setTimeout(function () {
-    window.location.href = "/ebooks/dubai-investment-guide.pdf";
-  }, 150);
-}
-
-
-    messageEl.innerHTML =
-      "Dziękujemy, <span class='result-highlight'>" + name +
-      "</span>. Proszę sprawdzić skrzynkę <strong>" + email +
-      "</strong>, gdzie pojawi się link do pobrania (po konfiguracji systemu).";
-    messageEl.style.color = "var(--success)";
+  /* =========================================
+     Dynamic year in footer
+     ========================================= */
+  const yearEl = document.getElementById("year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
   }
 
-  // Cost of living comparison data
+  /* =========================================
+     eBook browser download (Formspree flow)
+     ========================================= */
+  function startEbookDownload() {
+    setTimeout(function () {
+      window.location.href = "/ebooks/dubai-investment-guide.pdf";
+    }, 150);
+  }
+
+  /* =========================================
+     Cost of living comparison data
+     ========================================= */
   const cityData = [
     { name: "Dubai",     costIndex: 1.0, taxRate: 0.00 },
     { name: "London",    costIndex: 1.6, taxRate: 0.25 },
@@ -1564,6 +1566,7 @@ function startEbookDownload() {
       html += "<td>" + (city.taxRate > 0 ? formatCurrency(annualTax) + "/rok" : "brak danych") + "</td>";
       html += "</tr>";
     }
+
     html += "</tbody></table>";
 
     const london = cityData[1];
@@ -1571,19 +1574,18 @@ function startEbookDownload() {
     const annualSavings = (londonBudget - budget) * 12;
 
     html += "<div style='margin-top:0.8rem; font-size:0.85rem;'>";
-    html += "Przykład: W porównaniu z Londynem Państwa budżet na styl życia pozwala zaoszczędzić około ";
-    html += "<span class='result-success'>" + formatCurrency(annualSavings) + " rocznie</span> ";
-    html += "wybierając Dubaj zamiast Londynu — i to jeszcze przed uwzględnieniem 0% podatku dochodowego w Dubaju.";
+    html += "Przykład: W porównaniu z Londynem Państwa budżet pozwala zaoszczędzić około ";
+    html += "<span class='result-success'>" + formatCurrency(annualSavings) + " rocznie</span>, ";
+    html += "wybierając Dubaj zamiast Londynu.";
     html += "</div>";
 
     html += "<div style='margin-top:0.6rem; font-size:0.82rem;' class='muted'>";
-    html += "To przykładowe wyliczenia i nie stanowią one zastępstwa dla formalnej porady finansowej ani doradztwa relokacyjnego.";
+    html += "To przykładowe wyliczenia i nie stanowią porady finansowej.";
     html += "</div>";
 
     resultEl.innerHTML = html;
   }
 
-  // ✅ RESET FUNCTION MUST BE TOP-LEVEL, NOT NESTED
   function resetCostComparison() {
     const budgetInput = document.getElementById("budget");
     const housingShareInput = document.getElementById("housing-share");
@@ -1591,13 +1593,15 @@ function startEbookDownload() {
 
     if (budgetInput) budgetInput.value = "";
     if (housingShareInput) housingShareInput.value = "0.4";
-
     if (resultEl) {
-      resultEl.textContent = 'Wprowadź swój miesięczny budżet i kliknij „Porównaj miasta”, aby zobaczyć wyniki.';
+      resultEl.textContent =
+        "Wprowadź swój miesięczny budżet i kliknij „Porównaj miasta”, aby zobaczyć wyniki.";
     }
   }
 
-  // ROI projection (unchanged)
+  /* =========================================
+     ROI projection
+     ========================================= */
   function runRoiProjection() {
     const amountInput = document.getElementById("investment-amount");
     const yearsInput = document.getElementById("investment-years");
@@ -1609,7 +1613,8 @@ function startEbookDownload() {
     const rate = parseFloat(scenarioInput.value || "0.06");
 
     if (!amount || amount <= 0 || !years || years <= 0) {
-      resultEl.textContent = "Proszę wprowadzić zarówno kwotę inwestycji, jak i okres jej utrzymania.";
+      resultEl.textContent =
+        "Proszę wprowadzić zarówno kwotę inwestycji, jak i okres jej utrzymania.";
       return;
     }
 
@@ -1618,46 +1623,42 @@ function startEbookDownload() {
     const annualized = (Math.pow(futureValue / amount, 1 / years) - 1) * 100;
 
     let html = "";
-    html += "<div>Przy założeniu początkowej inwestycji w wysokości <span class='result-highlight'>" + formatCurrency(amount) +
-      "</span> utrzymywanej przez <span class='result-highlight'>" + years + " rok" + (years > 1 ? "i" : "") +
-      "</span> przy założonej stopie wzrostu <span class='result-highlight'>" + (rate * 100).toFixed(1) + "%</span> rocznie:</div>";
+    html += "<div>Przy inwestycji <span class='result-highlight'>" + formatCurrency(amount) +
+      "</span> utrzymywanej przez <span class='result-highlight'>" + years +
+      " lat</span> przy stopie <span class='result-highlight'>" +
+      (rate * 100).toFixed(1) + "%</span> rocznie:</div>";
 
     html += "<ul style='margin-top:0.7rem; padding-left:1em; font-size:0.88rem;'>";
-    html += "<li>Prognozowana przyszła wartość: <span class='result-success'>" + formatCurrency(futureValue) + "</span></li>";
-    html += "<li>Łączny niezrealizowany zysk: <span class='result-highlight'>" + formatCurrency(totalGain) + "</span></li>";
-    html += "<li>Przybliżona średnioroczna stopa zwrotu: " + annualized.toFixed(1) + "%</li>";
+    html += "<li>Prognozowana wartość: <span class='result-success'>" + formatCurrency(futureValue) + "</span></li>";
+    html += "<li>Łączny zysk: <span class='result-highlight'>" + formatCurrency(totalGain) + "</span></li>";
+    html += "<li>Średnioroczny zwrot: " + annualized.toFixed(1) + "%</li>";
     html += "</ul>";
 
     html += "<div style='margin-top:0.7rem; font-size:0.82rem;' class='muted'>";
-    html += "Są to uproszczone projekcje oparte na wzroście składanym i nie uwzględniają finansowania, opłat, zmian kursowych ani zmienności rynku. ";
-    html += "Aby otrzymać model dopasowany do konkretnych dzielnic, planów płatności i dźwigni finansowej, proszę o kontakt w celu prywatnej konsultacji.";
+    html += "To uproszczona symulacja i nie stanowi porady inwestycyjnej.";
     html += "</div>";
 
     resultEl.innerHTML = html;
   }
-  
+
   function resetRoiProjection() {
-  const amountInput = document.getElementById("investment-amount");
-  const yearsInput = document.getElementById("investment-years");
-  const scenarioInput = document.getElementById("growth-scenario");
-  const resultEl = document.getElementById("roi-result");
+    const amountInput = document.getElementById("investment-amount");
+    const yearsInput = document.getElementById("investment-years");
+    const scenarioInput = document.getElementById("growth-scenario");
+    const resultEl = document.getElementById("roi-result");
 
-  // Clear inputs
-  if (amountInput) amountInput.value = "";
-  if (yearsInput) yearsInput.value = "";
-
-  // Reset growth scenario to default "Balanced • 6% / year"
-  if (scenarioInput) scenarioInput.value = "0.06";
-
-  // Reset result box text
-  if (resultEl) {
-    resultEl.textContent =
-      "Wprowadź kwotę inwestycji oraz okres utrzymania, aby zobaczyć prognozowane wartości.";
+    if (amountInput) amountInput.value = "";
+    if (yearsInput) yearsInput.value = "";
+    if (scenarioInput) scenarioInput.value = "0.06";
+    if (resultEl) {
+      resultEl.textContent =
+        "Wprowadź kwotę inwestycji oraz okres utrzymania, aby zobaczyć prognozowane wartości.";
+    }
   }
-}
 
-
-  // Compose email from contact form (opens user's email client)
+  /* =========================================
+     Contact form mailto
+     ========================================= */
   function composeEmail() {
     const name = document.getElementById("contact-name").value.trim();
     const email = document.getElementById("contact-email").value.trim();
@@ -1672,26 +1673,22 @@ function startEbookDownload() {
       invest: "Rozmowa o portfelu inwestycyjnym"
     };
 
-    const subject = encodeURIComponent("Zapytanie dotyczące nieruchomości w Dubaju – " + (intentLabelMap[intent] || "Zapytanie"));
+    const subject = encodeURIComponent(
+      "Zapytanie dotyczące nieruchomości w Dubaju – " +
+      (intentLabelMap[intent] || "Zapytanie")
+    );
 
     let body = "";
-    body += "Imię i nazwisko: " + (name || "(brak danych)") + "%0D%0A";
-    body += "E-mail: " + (email || "(brak danych)") + "%0D%0A";
+    body += "Imię i nazwisko: " + (name || "(brak)") + "%0D%0A";
+    body += "E-mail: " + (email || "(brak)") + "%0D%0A";
     body += "Cel: " + (intentLabelMap[intent] || "") + "%0D%0A%0D%0A";
-    body += "Wiadomość:%0D%0A" + (message || "(brak treści wiadomości)") + "%0D%0A";
+    body += "Wiadomość:%0D%0A" + (message || "(brak treści)") + "%0D%0A";
 
-    const to = "oliwia@oliwiasuperagent.com";
-
-    window.location.href = "mailto:" + to + "?subject=" + subject + "&body=" + body;
+    window.location.href =
+      "mailto:oliwia@oliwiasuperagent.com?subject=" + subject + "&body=" + body;
   }
-
-  function startEbookDownload() {
-  setTimeout(function () {
-    window.location.href = "/ebooks/dubai-investment-guide.pdf";
-  }, 150);
-}
-
 </script>
+
 
 </body>
 </html>
