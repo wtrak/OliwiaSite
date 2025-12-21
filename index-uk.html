@@ -800,60 +800,73 @@
   </section>
 
   <!-- EBOOK -->
-  <section id="ebook">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Безкоштовний інвестиційний eBook</h2>
-        <p class="section-subtitle">
-          Короткий, чіткий гід щодо інвестування в нерухомість Дубая — ідеальний старт для серйозних покупців.
+<section id="ebook">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Безкоштовний інвестиційний eBook про Дубай</h2>
+      </div>
+      <p class="section-subtitle">
+        Короткий і зрозумілий гід з інвестування в нерухомість Дубаю —
+        ідеальний старт для серйозних інвесторів і покупців.
+      </p>
+    </div>
+
+    <div class="ebook-card">
+      <div>
+        <div class="badge">
+          <span>Безкоштовне завантаження</span>
+        </div>
+
+        <h3>«Чому Дубай має стати Вашою наступною великою інвестицією»</h3>
+
+        <p style="color:var(--muted); margin-top:0.5rem;">
+          Змістовний eBook про ключові райони Дубаю, реальну дохідність,
+          інвестиційні ризики та правильну стратегію входу на ринок
+          нерухомості з першого дня.
+        </p>
+
+        <!-- BREVO FORM EMBED -->
+        <div class="ebook-form" style="margin-top:1rem;">
+          <iframe
+            src="https://cdb442af.sibforms.com/serve/MUIFAAXLH4Lz8Y06DWvcDlVRmsDlU1KoxH0HUFrfKYwBlSPyDQebSR-qsBf1VEHOgFGVgynZw7al7_SfG4DiRierRtOskVAhwdOsrATPRgrZcXGa-52OBSTopRjKQWCwCedTL1TFxyS9M1BmLl-kSj34Dvec56NyYanNWF-6SW8gGZn8wkYrCQM3wIPlWNVY8yV812SG1VHtZ4Nm0A=="
+            frameborder="0"
+            scrolling="no"
+            allowfullscreen
+            style="
+              width:100%;
+              max-width:420px;
+              height:260px;
+              border:none;
+              border-radius:999px;
+              overflow:hidden;
+            ">
+          </iframe>
+        </div>
+
+        <p class="disclaimer">
+          Ми поважаємо Вашу конфіденційність. Посилання для завантаження eBook
+          буде автоматично надіслано на вказану електронну адресу.
         </p>
       </div>
 
-      <div class="ebook-card">
-        <div>
-          <div class="badge">Безкоштовне завантаження</div>
-
-          <h3>«Чому Ваш наступний великий інвестиційний крок — Дубай»</h3>
-          <p style="color:var(--muted); margin-top:0.5rem;">
-            Стисла та змістовна книга про ключові райони, очікувану дохідність,
-            ризики та про те, як правильно увійти на ринок з першого дня.
-          </p>
-
-          <!-- FORM: capture via Formspree, then download -->
-          <form
-            class="ebook-form"
-            id="ebook-form"
-            action="https://formspree.io/f/xvgeezqq"
-            method="POST"
-            onsubmit="startEbookDownload(event)"
-          >
-            <input class="input" type="text" name="name" placeholder="Ваше ім’я" required />
-            <input class="input" type="email" name="email" placeholder="Ваш e-mail" required />
-            <input type="hidden" name="language" value="uk" />
-            <button class="btn btn-primary" type="submit">Завантажити eBook</button>
-          </form>
-
-          <div class="disclaimer" id="ebook-message">
-            Без спаму. Після відправлення форми eBook буде завантажено одразу.
-          </div>
-        </div>
-
-        <div class="ebook-cover">
-          <div class="ebook-ribbon">Edition</div>
-          <span>Dubai Prime Property</span>
-          <h4>Інвестування в Дубаї</h4>
-          <ul style="margin-top:0.6rem; padding-left:1rem; font-size:0.86rem;">
-            <li>Ключові райони</li>
-            <li>Дохідність та зростання</li>
-            <li>Порівняння зі світовими столицями</li>
-          </ul>
-          <p style="font-size:0.78rem; margin-top:0.8rem;">
-            <strong>PDF</strong> — зручно прочитати в дорозі.
-          </p>
-        </div>
+      <div class="ebook-cover">
+        <div class="ebook-ribbon">Інвестиційне видання</div>
+        <span>Dubai Prime Property</span>
+        <h4>Інвестування в Дубай</h4>
+        <ul style="margin-top:0.6rem; padding-left:1rem; font-size:0.86rem;">
+          <li>Ключові райони та проєкти</li>
+          <li>Дохідність і зростання вартості</li>
+          <li>Порівняння з провідними світовими ринками</li>
+        </ul>
+        <p style="font-size:0.78rem; margin-top:0.8rem;">
+          <strong>PDF-файл</strong> — зручно прочитати в дорозі або під час перельоту.
+        </p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- CALCULATORS -->
   <section id="calculators">
@@ -1025,36 +1038,7 @@
     }
   });
 
-  /* =========================================
-     eBook: submit to Formspree, then download
-     ========================================= */
-  function startEbookDownload(e) {
-    // prevent page navigation away before we trigger download
-    if (e) e.preventDefault();
 
-    const form = document.getElementById("ebook-form");
-    const msg = document.getElementById("ebook-message");
-
-    // optional UI feedback
-    if (msg) {
-      msg.textContent = "Дякуємо! Завантаження починається…";
-      msg.style.color = "var(--success)";
-    }
-
-    // send form in background (Formspree)
-    try {
-      fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { "Accept": "application/json" }
-      }).catch(() => {});
-    } catch (_) {}
-
-    // trigger download
-    setTimeout(function () {
-      window.location.href = "/ebooks/dubai-investment-guide.pdf";
-    }, 150);
-  }
 
   // calculators data
   const cityData = [
